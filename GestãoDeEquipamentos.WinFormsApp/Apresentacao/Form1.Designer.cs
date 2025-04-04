@@ -242,6 +242,7 @@
             buttonAtualizar.TabIndex = 13;
             buttonAtualizar.Text = "Atualizar";
             buttonAtualizar.UseVisualStyleBackColor = false;
+            buttonAtualizar.Click += buttonAtualizar_Click;
             // 
             // buttonDeletar
             // 
@@ -253,6 +254,7 @@
             buttonDeletar.TabIndex = 14;
             buttonDeletar.Text = "Deletar";
             buttonDeletar.UseVisualStyleBackColor = false;
+            buttonDeletar.Click += buttonDeletar_Click;
             // 
             // Form1
             // 

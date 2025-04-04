@@ -26,6 +26,50 @@ namespace GestãoDeEquipamentos.WinFormsApp
             AtualizarDataGridView();
         }
 
+        private void buttonDeletar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxId.Text))
+            {
+                MessageBox.Show("Por favor, insira um ID válido.");
+                return;
+            }
+            else
+            {
+                equipamentos.RemoveAll(e => e.Id == Convert.ToInt32(textBoxId.Text));
+            }
+            MessageBox.Show($"Equipamento com ID {textBoxId.Text} removido com sucesso!");
+            LimparCampos();
+            AtualizarDataGridView();
+        }
+
+        private void buttonAtualizar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxId.Text))
+            {
+                MessageBox.Show("Por favor, insira um ID válido.");
+                return;
+            }
+            else
+            {
+                int id = Convert.ToInt32(textBoxId.Text);
+                Equipamento equipamento = equipamentos.FirstOrDefault(e => e.Id == id);
+                if (equipamento != null)
+                {
+                    equipamento.Nome = textBoxNome.Text;
+                    equipamento.Fabricante = textBoxFabricante.Text;
+                    equipamento.PrecoAquisicao = Convert.ToDecimal(textBoxPreco.Text);
+                    equipamento.DataFabricacao = DateOnly.FromDateTime(dateTimePickerDataFabricacao.Value);
+                    MessageBox.Show($"Equipamento {equipamento.Nome} atualizado com sucesso!");
+                    LimparCampos();
+                    AtualizarDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("Equipamento não encontrado.");
+                }
+            }
+        }
+
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
             LimparCampos();
@@ -45,7 +89,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             textBoxId.Text = equipamento.Id.ToString();
             textBoxNome.Text = equipamento.Nome;
             textBoxFabricante.Text = equipamento.Fabricante;
-            textBoxPreco.Text = equipamento.PrecoAquisicao.ToString("C2");
+            textBoxPreco.Text = equipamento.PrecoAquisicao.ToString();
         }
 
         private void AtualizarDataGridView()
@@ -163,5 +207,6 @@ namespace GestãoDeEquipamentos.WinFormsApp
         {
             PopularControles(equipamentos[e.RowIndex]);
         }
+
     }
 }
