@@ -50,8 +50,6 @@
             dataGridView2 = new DataGridView();
             label8 = new Label();
             label14 = new Label();
-            textBoxDiasAberto = new TextBox();
-            label13 = new Label();
             dateTimePickerChamado = new DateTimePicker();
             label9 = new Label();
             comboBoxTipoChamado = new ComboBox();
@@ -309,24 +307,6 @@
             label14.TabIndex = 7;
             label14.Text = "Controle de chamados";
             // 
-            // textBoxDiasAberto
-            // 
-            textBoxDiasAberto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxDiasAberto.Location = new Point(380, 45);
-            textBoxDiasAberto.Name = "textBoxDiasAberto";
-            textBoxDiasAberto.Size = new Size(118, 29);
-            textBoxDiasAberto.TabIndex = 9;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(259, 42);
-            label13.Name = "label13";
-            label13.Size = new Size(74, 38);
-            label13.TabIndex = 8;
-            label13.Text = "Dias em aberto:";
-            // 
             // dateTimePickerChamado
             // 
             dateTimePickerChamado.Location = new Point(380, 3);
@@ -361,7 +341,7 @@
             buttonDeletarChamado.Name = "buttonDeletarChamado";
             buttonDeletarChamado.Size = new Size(112, 35);
             buttonDeletarChamado.TabIndex = 14;
-            buttonDeletarChamado.Text = "Deletar";
+            buttonDeletarChamado.Text = "Fechar";
             buttonDeletarChamado.UseVisualStyleBackColor = false;
             buttonDeletarChamado.Click += buttonDeletarChamado_Click;
             // 
@@ -375,6 +355,7 @@
             buttonAtualizarChamado.TabIndex = 13;
             buttonAtualizarChamado.Text = "Atualizar";
             buttonAtualizarChamado.UseVisualStyleBackColor = false;
+            buttonAtualizarChamado.Click += buttonAtualizarChamado_Click;
             // 
             // buttonSalvarChamado
             // 
@@ -384,7 +365,7 @@
             buttonSalvarChamado.Name = "buttonSalvarChamado";
             buttonSalvarChamado.Size = new Size(112, 35);
             buttonSalvarChamado.TabIndex = 13;
-            buttonSalvarChamado.Text = "Salvar";
+            buttonSalvarChamado.Text = "Abrir";
             buttonSalvarChamado.UseVisualStyleBackColor = false;
             buttonSalvarChamado.Click += buttonSalvarChamado_Click;
             // 
@@ -466,8 +447,6 @@
             tableLayoutPanel2.Controls.Add(comboBoxTipoChamado, 1, 1);
             tableLayoutPanel2.Controls.Add(label9, 2, 0);
             tableLayoutPanel2.Controls.Add(dateTimePickerChamado, 3, 0);
-            tableLayoutPanel2.Controls.Add(label13, 2, 1);
-            tableLayoutPanel2.Controls.Add(textBoxDiasAberto, 3, 1);
             tableLayoutPanel2.Controls.Add(richTextBoxChamado, 3, 3);
             tableLayoutPanel2.Controls.Add(label15, 2, 3);
             tableLayoutPanel2.Location = new Point(30, 523);
@@ -551,8 +530,6 @@
         private DataGridView dataGridView2;
         private Label label8;
         private Label label14;
-        private TextBox textBoxDiasAberto;
-        private Label label13;
         private DateTimePicker dateTimePickerChamado;
         private Label label9;
         private ComboBox comboBoxTipoChamado;

@@ -121,6 +121,35 @@ namespace GestãoDeEquipamentos.WinFormsApp
             }
         }
 
+        private void buttonAtualizarChamado_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxIdChamado.Text))
+            {
+                MessageBox.Show("Por favor insira um ID válido.");
+                return;
+            }
+            else
+            {
+                int id = Convert.ToInt32(textBoxIdChamado.Text);
+                Chamado chamado = chamados.FirstOrDefault(e => e.Id == id);
+                if (chamado != null)
+                {
+                    TipoChamadoEnum tipoChamadoEnum = (TipoChamadoEnum)Enum.Parse(typeof(TipoChamadoEnum), comboBoxTipoChamado.SelectedItem.ToString());
+                    chamado.TituloChamado = tipoChamadoEnum;
+                    DateOnly aberturaChamado = DateOnly.FromDateTime(dateTimePickerChamado.Value);
+                    chamado.DataAbertura = aberturaChamado;
+                    string descricaoChamado = richTextBoxChamado.Text;
+                    chamado.DescricaoChamado = descricaoChamado;
+                    MessageBox.Show($"Chamado: {chamado.Id} atualizado com sucesso!");
+                    LimparCamposChamado();
+                    AtualizarDataGridViewChamados();
+                }
+                else
+                {
+                    MessageBox.Show("Chamado não encontrado");                }
+            }
+        }
+
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
             LimparCamposEquipamento();
@@ -280,5 +309,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
         {
             PopularControlesChamado(chamados[e.RowIndex]);
         }
+
+
     }
 }
