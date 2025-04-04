@@ -33,10 +33,19 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
         private void LimparCampos()
         {
+            textBoxId.Clear();
             textBoxNome.Clear();
             textBoxFabricante.Clear();
             textBoxPreco.Clear();
             dateTimePickerDataFabricacao.Value = DateTime.Now;
+        }
+
+        private void PopularControles(Equipamento equipamento)
+        {
+            textBoxId.Text = equipamento.Id.ToString();
+            textBoxNome.Text = equipamento.Nome;
+            textBoxFabricante.Text = equipamento.Fabricante;
+            textBoxPreco.Text = equipamento.PrecoAquisicao.ToString("C2");
         }
 
         private void AtualizarDataGridView()
@@ -148,6 +157,11 @@ namespace GestãoDeEquipamentos.WinFormsApp
         private void textBoxPreco_KeyPress(object sender, KeyPressEventArgs e)
         {
             PermitirSomenteNumeros(e);
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            PopularControles(equipamentos[e.RowIndex]);
         }
     }
 }
