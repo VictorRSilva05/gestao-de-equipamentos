@@ -10,8 +10,14 @@ namespace GestãoDeEquipamentos.WinFormsApp
             InitializeComponent();
             InicializarDataGridViewEquipamentos();
             InicializarDataGridViewChamados();
+            InicializarComboBox();
             CargaInicialEquipamento();
             AtualizarDataGridViewEquipamentos();
+        }
+
+        private void InicializarComboBox()
+        {
+            comboBoxTipoChamado.Items.AddRange(Enum.GetNames(typeof(TipoChamadoEnum)));
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
@@ -24,7 +30,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             equipamento.Id = GeradorIds.GerarIdEquipamento();
             equipamentos.Add(equipamento);
             MessageBox.Show($"Equipamento {equipamento.Nome} adicionado com sucesso!");
-            LimparCampos();
+            LimparCamposEquipamento();
             AtualizarDataGridViewEquipamentos();
         }
 
@@ -40,7 +46,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
                 equipamentos.RemoveAll(e => e.Id == Convert.ToInt32(textBoxId.Text));
             }
             MessageBox.Show($"Equipamento com ID {textBoxId.Text} removido com sucesso!");
-            LimparCampos();
+            LimparCamposEquipamento();
             AtualizarDataGridViewEquipamentos();
         }
 
@@ -62,7 +68,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
                     equipamento.PrecoAquisicao = Convert.ToDecimal(textBoxPreco.Text);
                     equipamento.DataFabricacao = DateOnly.FromDateTime(dateTimePickerDataFabricacao.Value);
                     MessageBox.Show($"Equipamento {equipamento.Nome} atualizado com sucesso!");
-                    LimparCampos();
+                    LimparCamposEquipamento();
                     AtualizarDataGridViewEquipamentos();
                 }
                 else
@@ -74,10 +80,23 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
-            LimparCampos();
+            LimparCamposEquipamento();
         }
 
-        private void LimparCampos()
+        private void buttonLimparChamado_Click(object sender, EventArgs e)
+        {
+            LimparCamposChamado();
+        }
+        private void LimparCamposChamado()
+        {
+            textBoxIdChamado.Clear();
+            comboBoxTipoChamado.SelectedIndex = -1;
+            textBoxIdEquipamentoChamado.Clear();
+            dateTimePickerChamado.Value = DateTime.Now;
+            textBoxDiasAberto.Clear();
+            richTextBoxChamado.Clear();
+        }
+        private void LimparCamposEquipamento()
         {
             textBoxId.Clear();
             textBoxNome.Clear();
@@ -218,5 +237,6 @@ namespace GestãoDeEquipamentos.WinFormsApp
             PopularControles(equipamentos[e.RowIndex]);
         }
 
+     
     }
 }

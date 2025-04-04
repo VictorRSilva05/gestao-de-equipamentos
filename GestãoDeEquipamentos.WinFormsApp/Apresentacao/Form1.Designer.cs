@@ -49,9 +49,28 @@
             buttonDeletar = new Button();
             dataGridView2 = new DataGridView();
             label8 = new Label();
+            label14 = new Label();
+            textBoxDiasAberto = new TextBox();
+            label13 = new Label();
+            dateTimePickerChamado = new DateTimePicker();
+            label9 = new Label();
+            comboBoxTipoChamado = new ComboBox();
+            buttonDeletarChamado = new Button();
+            buttonAtualizarChamado = new Button();
+            buttonSalvarChamado = new Button();
+            buttonLimparChamado = new Button();
+            textBoxIdEquipamentoChamado = new TextBox();
+            textBoxIdChamado = new TextBox();
+            label12 = new Label();
+            label11 = new Label();
+            label10 = new Label();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            richTextBoxChamado = new RichTextBox();
+            label15 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
@@ -81,9 +100,9 @@
             label2.Font = new Font("Arial", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(12, 97);
             label2.Name = "label2";
-            label2.Size = new Size(425, 44);
+            label2.Size = new Size(490, 44);
             label2.TabIndex = 2;
-            label2.Text = "Registrar equipamento";
+            label2.Text = "Controle de equipamentos";
             // 
             // textBoxPreco
             // 
@@ -278,6 +297,205 @@
             label8.TabIndex = 5;
             label8.Text = "Chamados em aberto";
             // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.BackColor = Color.Transparent;
+            label14.Font = new Font("Arial", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.Location = new Point(12, 476);
+            label14.Name = "label14";
+            label14.Size = new Size(422, 44);
+            label14.TabIndex = 7;
+            label14.Text = "Controle de chamados";
+            // 
+            // textBoxDiasAberto
+            // 
+            textBoxDiasAberto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxDiasAberto.Location = new Point(380, 45);
+            textBoxDiasAberto.Name = "textBoxDiasAberto";
+            textBoxDiasAberto.Size = new Size(118, 29);
+            textBoxDiasAberto.TabIndex = 9;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.Location = new Point(259, 42);
+            label13.Name = "label13";
+            label13.Size = new Size(74, 38);
+            label13.TabIndex = 8;
+            label13.Text = "Dias em aberto:";
+            // 
+            // dateTimePickerChamado
+            // 
+            dateTimePickerChamado.Location = new Point(380, 3);
+            dateTimePickerChamado.Name = "dateTimePickerChamado";
+            dateTimePickerChamado.Size = new Size(237, 23);
+            dateTimePickerChamado.TabIndex = 4;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Location = new Point(259, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(103, 38);
+            label9.TabIndex = 10;
+            label9.Text = "Abertura do chamado:";
+            // 
+            // comboBoxTipoChamado
+            // 
+            comboBoxTipoChamado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboBoxTipoChamado.FormattingEnabled = true;
+            comboBoxTipoChamado.Location = new Point(124, 45);
+            comboBoxTipoChamado.Name = "comboBoxTipoChamado";
+            comboBoxTipoChamado.Size = new Size(118, 29);
+            comboBoxTipoChamado.TabIndex = 15;
+            // 
+            // buttonDeletarChamado
+            // 
+            buttonDeletarChamado.BackColor = Color.Red;
+            buttonDeletarChamado.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonDeletarChamado.Location = new Point(380, 200);
+            buttonDeletarChamado.Name = "buttonDeletarChamado";
+            buttonDeletarChamado.Size = new Size(112, 35);
+            buttonDeletarChamado.TabIndex = 14;
+            buttonDeletarChamado.Text = "Deletar";
+            buttonDeletarChamado.UseVisualStyleBackColor = false;
+            // 
+            // buttonAtualizarChamado
+            // 
+            buttonAtualizarChamado.BackColor = Color.Yellow;
+            buttonAtualizarChamado.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonAtualizarChamado.Location = new Point(259, 200);
+            buttonAtualizarChamado.Name = "buttonAtualizarChamado";
+            buttonAtualizarChamado.Size = new Size(105, 35);
+            buttonAtualizarChamado.TabIndex = 13;
+            buttonAtualizarChamado.Text = "Atualizar";
+            buttonAtualizarChamado.UseVisualStyleBackColor = false;
+            // 
+            // buttonSalvarChamado
+            // 
+            buttonSalvarChamado.BackColor = Color.Green;
+            buttonSalvarChamado.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonSalvarChamado.Location = new Point(124, 200);
+            buttonSalvarChamado.Name = "buttonSalvarChamado";
+            buttonSalvarChamado.Size = new Size(112, 35);
+            buttonSalvarChamado.TabIndex = 13;
+            buttonSalvarChamado.Text = "Salvar";
+            buttonSalvarChamado.UseVisualStyleBackColor = false;
+            // 
+            // buttonLimparChamado
+            // 
+            buttonLimparChamado.BackColor = Color.DeepSkyBlue;
+            buttonLimparChamado.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonLimparChamado.Location = new Point(3, 200);
+            buttonLimparChamado.Name = "buttonLimparChamado";
+            buttonLimparChamado.Size = new Size(112, 35);
+            buttonLimparChamado.TabIndex = 12;
+            buttonLimparChamado.Text = "Limpar";
+            buttonLimparChamado.UseVisualStyleBackColor = false;
+            buttonLimparChamado.Click += buttonLimparChamado_Click;
+            // 
+            // textBoxIdEquipamentoChamado
+            // 
+            textBoxIdEquipamentoChamado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxIdEquipamentoChamado.Location = new Point(124, 84);
+            textBoxIdEquipamentoChamado.Name = "textBoxIdEquipamentoChamado";
+            textBoxIdEquipamentoChamado.Size = new Size(118, 29);
+            textBoxIdEquipamentoChamado.TabIndex = 7;
+            // 
+            // textBoxIdChamado
+            // 
+            textBoxIdChamado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxIdChamado.Location = new Point(124, 3);
+            textBoxIdChamado.Name = "textBoxIdChamado";
+            textBoxIdChamado.Size = new Size(118, 29);
+            textBoxIdChamado.TabIndex = 5;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.Location = new Point(3, 42);
+            label12.Name = "label12";
+            label12.Size = new Size(86, 38);
+            label12.TabIndex = 1;
+            label12.Text = "Tipo do chamado:";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.Location = new Point(3, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(86, 38);
+            label11.TabIndex = 0;
+            label11.Text = "ID do chamado:";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.Location = new Point(3, 81);
+            label10.Name = "label10";
+            label10.Size = new Size(115, 38);
+            label10.TabIndex = 4;
+            label10.Text = "ID do equipamento:";
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.BackColor = Color.Transparent;
+            tableLayoutPanel2.ColumnCount = 4;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 47.265625F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 52.734375F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 121F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 243F));
+            tableLayoutPanel2.Controls.Add(label10, 0, 2);
+            tableLayoutPanel2.Controls.Add(label11, 0, 0);
+            tableLayoutPanel2.Controls.Add(label12, 0, 1);
+            tableLayoutPanel2.Controls.Add(textBoxIdChamado, 1, 0);
+            tableLayoutPanel2.Controls.Add(textBoxIdEquipamentoChamado, 1, 2);
+            tableLayoutPanel2.Controls.Add(buttonLimparChamado, 0, 4);
+            tableLayoutPanel2.Controls.Add(buttonSalvarChamado, 1, 4);
+            tableLayoutPanel2.Controls.Add(buttonAtualizarChamado, 2, 4);
+            tableLayoutPanel2.Controls.Add(buttonDeletarChamado, 3, 4);
+            tableLayoutPanel2.Controls.Add(comboBoxTipoChamado, 1, 1);
+            tableLayoutPanel2.Controls.Add(label9, 2, 0);
+            tableLayoutPanel2.Controls.Add(dateTimePickerChamado, 3, 0);
+            tableLayoutPanel2.Controls.Add(label13, 2, 1);
+            tableLayoutPanel2.Controls.Add(textBoxDiasAberto, 3, 1);
+            tableLayoutPanel2.Controls.Add(richTextBoxChamado, 3, 3);
+            tableLayoutPanel2.Controls.Add(label15, 2, 3);
+            tableLayoutPanel2.Location = new Point(30, 523);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 5;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 51.7241364F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 48.2758636F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 78F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 63F));
+            tableLayoutPanel2.Size = new Size(621, 261);
+            tableLayoutPanel2.TabIndex = 6;
+            // 
+            // richTextBoxChamado
+            // 
+            richTextBoxChamado.Location = new Point(380, 122);
+            richTextBoxChamado.Name = "richTextBoxChamado";
+            richTextBoxChamado.Size = new Size(238, 72);
+            richTextBoxChamado.TabIndex = 16;
+            richTextBoxChamado.Text = "";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.Location = new Point(259, 119);
+            label15.Name = "label15";
+            label15.Size = new Size(114, 38);
+            label15.TabIndex = 17;
+            label15.Text = "Descrição do chamado:";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -285,6 +503,8 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(label14);
+            Controls.Add(tableLayoutPanel2);
             Controls.Add(label8);
             Controls.Add(dataGridView2);
             Controls.Add(tableLayoutPanel1);
@@ -299,6 +519,8 @@
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -325,5 +547,23 @@
         private DateTimePicker dateTimePickerDataFabricacao;
         private DataGridView dataGridView2;
         private Label label8;
+        private Label label14;
+        private TextBox textBoxDiasAberto;
+        private Label label13;
+        private DateTimePicker dateTimePickerChamado;
+        private Label label9;
+        private ComboBox comboBoxTipoChamado;
+        private Button buttonDeletarChamado;
+        private Button buttonAtualizarChamado;
+        private Button buttonSalvarChamado;
+        private Button buttonLimparChamado;
+        private TextBox textBoxIdEquipamentoChamado;
+        private TextBox textBoxIdChamado;
+        private Label label12;
+        private Label label11;
+        private Label label10;
+        private TableLayoutPanel tableLayoutPanel2;
+        private RichTextBox richTextBoxChamado;
+        private Label label15;
     }
 }
