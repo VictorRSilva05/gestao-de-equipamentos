@@ -44,7 +44,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             dataGridView1.Rows.Clear();
             foreach (var equipamento in equipamentos)
             {
-                dataGridView1.Rows.Add(equipamento.Id, equipamento.Nome, equipamento.Fabricante, equipamento.PrecoAquisicao, equipamento.DataFabricacao);
+                dataGridView1.Rows.Add(equipamento.Id, equipamento.Nome, equipamento.Fabricante, equipamento.PrecoAquisicao, equipamento.DataFabricacao, equipamento.ObterNumeroSerie());
             }
         }
         private void InitializeDataGridView()
@@ -54,6 +54,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             dataGridView1.Columns.Add("Fabricante", "Fabricante");
             dataGridView1.Columns.Add("PrecoAquisicao", "Preço de Aquisição");
             dataGridView1.Columns.Add("DataFabricacao", "Data de Fabricação");
+            dataGridView1.Columns.Add("Número de série", "Número de série");
         }
 
         private void PermitirSomenteNumeros(KeyPressEventArgs e)

@@ -56,7 +56,7 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(720, 159);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(558, 550);
+            dataGridView1.Size = new Size(657, 550);
             dataGridView1.TabIndex = 0;
             // 
             // label1
@@ -183,18 +183,18 @@
             tableLayoutPanel1.Controls.Add(textBoxFabricante, 1, 2);
             tableLayoutPanel1.Controls.Add(label6, 2, 0);
             tableLayoutPanel1.Controls.Add(textBoxPreco, 3, 0);
-            tableLayoutPanel1.Controls.Add(buttonLimpar, 0, 5);
-            tableLayoutPanel1.Controls.Add(buttonSalvar, 1, 5);
-            tableLayoutPanel1.Controls.Add(buttonAtualizar, 2, 5);
-            tableLayoutPanel1.Controls.Add(buttonDeletar, 3, 5);
+            tableLayoutPanel1.Controls.Add(buttonLimpar, 0, 4);
+            tableLayoutPanel1.Controls.Add(buttonSalvar, 1, 4);
+            tableLayoutPanel1.Controls.Add(buttonAtualizar, 2, 4);
+            tableLayoutPanel1.Controls.Add(buttonDeletar, 3, 4);
             tableLayoutPanel1.Location = new Point(30, 159);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 7;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 43F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 41F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 33F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 41F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 49F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 46F));
             tableLayoutPanel1.Size = new Size(621, 294);
@@ -211,9 +211,9 @@
             // 
             buttonLimpar.BackColor = Color.DeepSkyBlue;
             buttonLimpar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonLimpar.Location = new Point(3, 202);
+            buttonLimpar.Location = new Point(3, 161);
             buttonLimpar.Name = "buttonLimpar";
-            buttonLimpar.Size = new Size(112, 40);
+            buttonLimpar.Size = new Size(112, 35);
             buttonLimpar.TabIndex = 12;
             buttonLimpar.Text = "Limpar";
             buttonLimpar.UseVisualStyleBackColor = false;
@@ -223,9 +223,9 @@
             // 
             buttonSalvar.BackColor = Color.Green;
             buttonSalvar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonSalvar.Location = new Point(121, 202);
+            buttonSalvar.Location = new Point(121, 161);
             buttonSalvar.Name = "buttonSalvar";
-            buttonSalvar.Size = new Size(112, 40);
+            buttonSalvar.Size = new Size(112, 35);
             buttonSalvar.TabIndex = 13;
             buttonSalvar.Text = "Salvar";
             buttonSalvar.UseVisualStyleBackColor = false;
@@ -235,9 +235,9 @@
             // 
             buttonAtualizar.BackColor = Color.Yellow;
             buttonAtualizar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonAtualizar.Location = new Point(259, 202);
+            buttonAtualizar.Location = new Point(259, 161);
             buttonAtualizar.Name = "buttonAtualizar";
-            buttonAtualizar.Size = new Size(105, 40);
+            buttonAtualizar.Size = new Size(105, 35);
             buttonAtualizar.TabIndex = 13;
             buttonAtualizar.Text = "Atualizar";
             buttonAtualizar.UseVisualStyleBackColor = false;
@@ -246,9 +246,9 @@
             // 
             buttonDeletar.BackColor = Color.Red;
             buttonDeletar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonDeletar.Location = new Point(380, 202);
+            buttonDeletar.Location = new Point(380, 161);
             buttonDeletar.Name = "buttonDeletar";
-            buttonDeletar.Size = new Size(112, 40);
+            buttonDeletar.Size = new Size(112, 35);
             buttonDeletar.TabIndex = 14;
             buttonDeletar.Text = "Deletar";
             buttonDeletar.UseVisualStyleBackColor = false;
