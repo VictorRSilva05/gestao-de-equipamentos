@@ -25,8 +25,17 @@ namespace GestãoDeEquipamentos.WinFormsApp
         {
             string nome = textBoxNome.Text;
             string fabricante = textBoxFabricante.Text;
-            decimal precoAquisicao = Convert.ToDecimal(textBoxPreco.Text);
+            string auxPrecoAquisicao = textBoxPreco.Text;
             DateOnly dataFabricacao = DateOnly.FromDateTime(dateTimePickerDataFabricacao.Value);
+
+            if (string.IsNullOrEmpty(textBoxNome.Text) || string.IsNullOrEmpty(textBoxFabricante.Text) || string.IsNullOrEmpty(textBoxPreco.Text))
+            {
+                MessageBox.Show("Preencha todos os campos.");
+                return;
+            }
+
+            decimal precoAquisicao = decimal.Parse(auxPrecoAquisicao);
+
             Equipamento equipamento = new Equipamento(nome, fabricante, precoAquisicao, dataFabricacao);
             equipamento.Id = GeradorIds.GerarIdEquipamento();
             equipamentos.Add(equipamento);
@@ -146,7 +155,8 @@ namespace GestãoDeEquipamentos.WinFormsApp
                 }
                 else
                 {
-                    MessageBox.Show("Chamado não encontrado");                }
+                    MessageBox.Show("Chamado não encontrado");
+                }
             }
         }
 
@@ -165,7 +175,6 @@ namespace GestãoDeEquipamentos.WinFormsApp
             comboBoxTipoChamado.SelectedIndex = -1;
             textBoxIdEquipamentoChamado.Clear();
             dateTimePickerChamado.Value = DateTime.Now;
-            textBoxDiasAberto.Clear();
             richTextBoxChamado.Clear();
         }
         private void LimparCamposEquipamento()
@@ -309,7 +318,5 @@ namespace GestãoDeEquipamentos.WinFormsApp
         {
             PopularControlesChamado(chamados[e.RowIndex]);
         }
-
-
     }
 }
