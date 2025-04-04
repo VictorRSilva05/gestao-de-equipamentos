@@ -285,6 +285,7 @@
             dataGridView2.Name = "dataGridView2";
             dataGridView2.Size = new Size(516, 609);
             dataGridView2.TabIndex = 4;
+            dataGridView2.CellClick += dataGridView2_CellClick;
             // 
             // label8
             // 
@@ -362,6 +363,7 @@
             buttonDeletarChamado.TabIndex = 14;
             buttonDeletarChamado.Text = "Deletar";
             buttonDeletarChamado.UseVisualStyleBackColor = false;
+            buttonDeletarChamado.Click += buttonDeletarChamado_Click;
             // 
             // buttonAtualizarChamado
             // 

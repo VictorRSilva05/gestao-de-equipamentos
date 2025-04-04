@@ -70,11 +70,27 @@ namespace GestãoDeEquipamentos.WinFormsApp
             }
             else
             {
-                equipamentos.RemoveAll(e => e.Id == Convert.ToInt32(textBoxId.Text));
+                chamados.RemoveAll(e => e.Id == Convert.ToInt32(textBoxId.Text));
             }
             MessageBox.Show($"Equipamento com ID {textBoxId.Text} removido com sucesso!");
             LimparCamposEquipamento();
             AtualizarDataGridViewEquipamentos();
+        }
+
+        private void buttonDeletarChamado_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxIdChamado.Text))
+            {
+                MessageBox.Show("Por favor, insira um ID válido.");
+                return;
+            }
+            else
+            {
+                equipamentos.RemoveAll(e => e.Id == Convert.ToInt32(textBoxIdChamado.Text));
+            }
+            MessageBox.Show($"Chamado com ID {textBoxIdChamado.Text} removido com sucesso!");
+            LimparCamposChamado();
+            AtualizarDataGridViewChamados();
         }
 
         private void buttonAtualizar_Click(object sender, EventArgs e)
@@ -132,12 +148,20 @@ namespace GestãoDeEquipamentos.WinFormsApp
             dateTimePickerDataFabricacao.Value = DateTime.Now;
         }
 
-        private void PopularControles(Equipamento equipamento)
+        private void PopularControlesEquipamento(Equipamento equipamento)
         {
             textBoxId.Text = equipamento.Id.ToString();
             textBoxNome.Text = equipamento.Nome;
             textBoxFabricante.Text = equipamento.Fabricante;
             textBoxPreco.Text = equipamento.PrecoAquisicao.ToString();
+        }
+
+        private void PopularControlesChamado(Chamado chamado)
+        {
+            textBoxIdChamado.Text = chamado.Id.ToString();
+            comboBoxTipoChamado.Text = chamado.TituloChamado.ToString();
+            textBoxIdEquipamentoChamado.Text = chamado.Equipamento.Id.ToString();
+            richTextBoxChamado.Text = chamado.DescricaoChamado.ToString();
         }
 
         private void AtualizarDataGridViewEquipamentos()
@@ -154,7 +178,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             dataGridView2.Rows.Clear();
             foreach (var chamado in chamados)
             {
-                dataGridView2.Rows.Add(chamado.Id,chamado.TituloChamado, chamado.Equipamento.Id, chamado.DescricaoChamado, chamado.DataAbertura);
+                dataGridView2.Rows.Add(chamado.Id, chamado.TituloChamado, chamado.Equipamento.Id, chamado.DescricaoChamado, chamado.DataAbertura);
             }
         }
         private void InicializarDataGridViewEquipamentos()
@@ -247,9 +271,12 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            PopularControles(equipamentos[e.RowIndex]);
+            PopularControlesEquipamento(equipamentos[e.RowIndex]);
         }
 
-
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            PopularControlesChamado(chamados[e.RowIndex]);
+        }
     }
 }
