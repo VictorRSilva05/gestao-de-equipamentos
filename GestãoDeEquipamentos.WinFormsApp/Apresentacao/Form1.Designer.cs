@@ -47,16 +47,19 @@
             buttonSalvar = new Button();
             buttonAtualizar = new Button();
             buttonDeletar = new Button();
+            dataGridView2 = new DataGridView();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(720, 159);
+            dataGridView1.Location = new Point(682, 159);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(657, 550);
+            dataGridView1.Size = new Size(657, 609);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -256,6 +259,25 @@
             buttonDeletar.UseVisualStyleBackColor = false;
             buttonDeletar.Click += buttonDeletar_Click;
             // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(1376, 159);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.Size = new Size(516, 609);
+            dataGridView2.TabIndex = 4;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
+            label8.Font = new Font("Arial", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(1391, 97);
+            label8.Name = "label8";
+            label8.Size = new Size(399, 44);
+            label8.TabIndex = 5;
+            label8.Text = "Chamados em aberto";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -263,6 +285,8 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(label8);
+            Controls.Add(dataGridView2);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -274,6 +298,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -298,5 +323,7 @@
         private Button buttonDeletar;
         private Button buttonSalvar;
         private DateTimePicker dateTimePickerDataFabricacao;
+        private DataGridView dataGridView2;
+        private Label label8;
     }
 }

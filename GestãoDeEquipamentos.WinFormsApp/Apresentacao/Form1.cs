@@ -4,12 +4,14 @@ namespace GestãoDeEquipamentos.WinFormsApp
     public partial class Form1 : Form
     {
         List<Equipamento> equipamentos = new List<Equipamento>();
+        List<Chamado> chamados = new List<Chamado>();
         public Form1()
         {
             InitializeComponent();
-            InitializeDataGridView();
-            CargaInicial();
-            AtualizarDataGridView();
+            InicializarDataGridViewEquipamentos();
+            InicializarDataGridViewChamados();
+            CargaInicialEquipamento();
+            AtualizarDataGridViewEquipamentos();
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
@@ -23,7 +25,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             equipamentos.Add(equipamento);
             MessageBox.Show($"Equipamento {equipamento.Nome} adicionado com sucesso!");
             LimparCampos();
-            AtualizarDataGridView();
+            AtualizarDataGridViewEquipamentos();
         }
 
         private void buttonDeletar_Click(object sender, EventArgs e)
@@ -39,7 +41,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             }
             MessageBox.Show($"Equipamento com ID {textBoxId.Text} removido com sucesso!");
             LimparCampos();
-            AtualizarDataGridView();
+            AtualizarDataGridViewEquipamentos();
         }
 
         private void buttonAtualizar_Click(object sender, EventArgs e)
@@ -61,7 +63,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
                     equipamento.DataFabricacao = DateOnly.FromDateTime(dateTimePickerDataFabricacao.Value);
                     MessageBox.Show($"Equipamento {equipamento.Nome} atualizado com sucesso!");
                     LimparCampos();
-                    AtualizarDataGridView();
+                    AtualizarDataGridViewEquipamentos();
                 }
                 else
                 {
@@ -92,7 +94,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             textBoxPreco.Text = equipamento.PrecoAquisicao.ToString();
         }
 
-        private void AtualizarDataGridView()
+        private void AtualizarDataGridViewEquipamentos()
         {
             dataGridView1.Rows.Clear();
             foreach (var equipamento in equipamentos)
@@ -100,7 +102,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
                 dataGridView1.Rows.Add(equipamento.Id, equipamento.Nome, equipamento.Fabricante, equipamento.PrecoAquisicao, equipamento.DataFabricacao, equipamento.ObterNumeroSerie());
             }
         }
-        private void InitializeDataGridView()
+        private void InicializarDataGridViewEquipamentos()
         {
             dataGridView1.Columns.Add("Id", "ID");
             dataGridView1.Columns.Add("Nome", "Nome");
@@ -108,6 +110,15 @@ namespace GestãoDeEquipamentos.WinFormsApp
             dataGridView1.Columns.Add("PrecoAquisicao", "Preço de Aquisição");
             dataGridView1.Columns.Add("DataFabricacao", "Data de Fabricação");
             dataGridView1.Columns.Add("Número de série", "Número de série");
+        }
+
+        private void InicializarDataGridViewChamados()
+        {
+            dataGridView2.Columns.Add("Id", "ID");
+            dataGridView2.Columns.Add("TituloChamado", "Título do Chamado");
+            dataGridView2.Columns.Add("DescricaoChamado", "Descrição do Chamado");
+            dataGridView2.Columns.Add("Equipamento", "Equipamento");
+            dataGridView2.Columns.Add("DataAbertura", "Data de Abertura");
         }
 
         private void PermitirSomenteNumeros(KeyPressEventArgs e)
@@ -120,7 +131,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '.') ;
         }
 
-        private void CargaInicial()
+        private void CargaInicialEquipamento()
         {
             Equipamento equipamento1 = new Equipamento("Sidewinder", "Raytheon", 380069, new DateOnly(2022, 5, 1));
             equipamento1.Id = GeradorIds.GerarIdEquipamento();
@@ -192,7 +203,6 @@ namespace GestãoDeEquipamentos.WinFormsApp
             equipamentos.Add(equipamento49);
             equipamentos.Add(equipamento50);
         }
-
         private void textBoxId_KeyPress(object sender, KeyPressEventArgs e)
         {
             PermitirSomenteNumeros(e);
