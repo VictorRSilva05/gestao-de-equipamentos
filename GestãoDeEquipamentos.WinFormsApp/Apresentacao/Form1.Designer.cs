@@ -88,6 +88,7 @@
             textBoxPreco.Name = "textBoxPreco";
             textBoxPreco.Size = new Size(118, 29);
             textBoxPreco.TabIndex = 9;
+            textBoxPreco.KeyPress += textBoxPreco_KeyPress;
             // 
             // label6
             // 
@@ -122,6 +123,7 @@
             textBoxId.Name = "textBoxId";
             textBoxId.Size = new Size(118, 29);
             textBoxId.TabIndex = 5;
+            textBoxId.KeyPress += textBoxId_KeyPress;
             // 
             // label4
             // 

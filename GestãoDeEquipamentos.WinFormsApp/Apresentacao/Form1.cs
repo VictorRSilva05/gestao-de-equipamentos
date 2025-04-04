@@ -56,6 +56,16 @@ namespace GestãoDeEquipamentos.WinFormsApp
             dataGridView1.Columns.Add("DataFabricacao", "Data de Fabricação");
         }
 
+        private void PermitirSomenteNumeros(KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '.') ;
+        }
+
         private void CargaInicial()
         {
             Equipamento equipamento1 = new Equipamento("Sidewinder", "Raytheon", 380069, new DateOnly(2022, 5, 1));
@@ -127,6 +137,16 @@ namespace GestãoDeEquipamentos.WinFormsApp
             equipamentos.Add(equipamento48);
             equipamentos.Add(equipamento49);
             equipamentos.Add(equipamento50);
+        }
+
+        private void textBoxId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            PermitirSomenteNumeros(e);
+        }
+
+        private void textBoxPreco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            PermitirSomenteNumeros(e);
         }
     }
 }
