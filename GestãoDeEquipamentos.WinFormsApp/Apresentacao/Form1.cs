@@ -86,7 +86,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             }
             else
             {
-                equipamentos.RemoveAll(e => e.Id == Convert.ToInt32(textBoxIdChamado.Text));
+                chamados.RemoveAll(e => e.Id == Convert.ToInt32(textBoxIdChamado.Text));
             }
             MessageBox.Show($"Chamado com ID {textBoxIdChamado.Text} removido com sucesso!");
             LimparCamposChamado();
@@ -178,7 +178,8 @@ namespace GestãoDeEquipamentos.WinFormsApp
             dataGridView2.Rows.Clear();
             foreach (var chamado in chamados)
             {
-                dataGridView2.Rows.Add(chamado.Id, chamado.TituloChamado, chamado.Equipamento.Id, chamado.DescricaoChamado, chamado.DataAbertura);
+                var dataAtual = DateTime.Now.Subtract(chamado.DataAbertura.ToDateTime(TimeOnly.MinValue));
+                dataGridView2.Rows.Add(chamado.Id, chamado.TituloChamado, chamado.Equipamento.Id, chamado.DescricaoChamado, chamado.DataAbertura, dataAtual.TotalDays.ToString("F0"));
             }
         }
         private void InicializarDataGridViewEquipamentos()
@@ -198,6 +199,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             dataGridView2.Columns.Add("DescricaoChamado", "Descrição do Chamado");
             dataGridView2.Columns.Add("Equipamento", "Equipamento");
             dataGridView2.Columns.Add("DataAbertura", "Data de Abertura");
+            dataGridView2.Columns.Add("Dias aberto", "Dias aberto");
         }
 
         private void PermitirSomenteNumeros(KeyPressEventArgs e)
