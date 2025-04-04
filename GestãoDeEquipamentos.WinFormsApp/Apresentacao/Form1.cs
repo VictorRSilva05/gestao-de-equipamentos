@@ -13,6 +13,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             InicializarComboBox();
             CargaInicialEquipamento();
             AtualizarDataGridViewEquipamentos();
+            AtualizarDataGridViewChamados();
         }
 
         private void InicializarComboBox()
@@ -33,6 +34,32 @@ namespace GestãoDeEquipamentos.WinFormsApp
             LimparCamposEquipamento();
             AtualizarDataGridViewEquipamentos();
         }
+
+        private void buttonSalvarChamado_Click(object sender, EventArgs e)
+        {
+            TipoChamadoEnum tipoChamadoEnum = (TipoChamadoEnum)Enum.Parse(typeof(TipoChamadoEnum), comboBoxTipoChamado.SelectedItem.ToString());
+            Equipamento equipamento = equipamentos.Find(e => e.Id == Convert.ToInt32(textBoxIdEquipamentoChamado.Text));
+            if (equipamento is null)
+                return;
+
+            DateOnly aberturaChamado = DateOnly.FromDateTime(dateTimePickerChamado.Value);
+            string descricaoChamado = richTextBoxChamado.Text;
+
+            Chamado chamado = new Chamado
+            {
+                TituloChamado = tipoChamadoEnum,
+                DescricaoChamado = descricaoChamado,
+                Equipamento = equipamento,
+                DataAbertura = aberturaChamado
+            };
+
+            chamado.Id = GeradorIds.GerarIdChamado();
+            chamados.Add(chamado);
+            MessageBox.Show($"Chamado aberto para: {chamado.Equipamento.Nome}");
+            LimparCamposChamado();
+            AtualizarDataGridViewChamados();
+        }
+
 
         private void buttonDeletar_Click(object sender, EventArgs e)
         {
@@ -121,6 +148,15 @@ namespace GestãoDeEquipamentos.WinFormsApp
                 dataGridView1.Rows.Add(equipamento.Id, equipamento.Nome, equipamento.Fabricante, equipamento.PrecoAquisicao, equipamento.DataFabricacao, equipamento.ObterNumeroSerie());
             }
         }
+
+        private void AtualizarDataGridViewChamados()
+        {
+            dataGridView2.Rows.Clear();
+            foreach (var chamado in chamados)
+            {
+                dataGridView2.Rows.Add(chamado.Id,chamado.TituloChamado, chamado.Equipamento.Id, chamado.DescricaoChamado, chamado.DataAbertura);
+            }
+        }
         private void InicializarDataGridViewEquipamentos()
         {
             dataGridView1.Columns.Add("Id", "ID");
@@ -152,52 +188,29 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
         private void CargaInicialEquipamento()
         {
-            Equipamento equipamento1 = new Equipamento("Sidewinder", "Raytheon", 380069, new DateOnly(2022, 5, 1));
-            equipamento1.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento2 = new Equipamento("Sparrow", "Raytheon", 125000, new DateOnly(2021, 8, 15));
-            equipamento2.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento3 = new Equipamento("Tomahawk", "Raytheon", 1500000, new DateOnly(2020, 12, 20));
-            equipamento3.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento4 = new Equipamento("Hellfire", "Lockheed Martin", 110000, new DateOnly(2023, 1, 10));
-            equipamento4.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento5 = new Equipamento("Javelin", "Lockheed Martin", 178000, new DateOnly(2023, 2, 5));
-            equipamento5.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento6 = new Equipamento("Stinger", "Raytheon", 38000, new DateOnly(2023, 3, 12));
-            equipamento6.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento7 = new Equipamento("Patriot", "Raytheon", 10000000, new DateOnly(2023, 4, 18));
-            equipamento7.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento8 = new Equipamento("AIM-120", "Raytheon", 500000, new DateOnly(2023, 5, 25));
-            equipamento8.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento9 = new Equipamento("AIM-9", "Raytheon", 200000, new DateOnly(2023, 6, 30));
-            equipamento9.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento10 = new Equipamento("AIM-7", "Raytheon", 300000, new DateOnly(2023, 7, 15));
-            equipamento10.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento11 = new Equipamento("AGM-86", "Boeing", 2000000, new DateOnly(2023, 8, 20));
-            equipamento11.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento12 = new Equipamento("AGM-114", "Lockheed Martin", 700000, new DateOnly(2023, 9, 25));
-            equipamento12.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento13 = new Equipamento("AGM-158", "Lockheed Martin", 1200000, new DateOnly(2023, 10, 30));
-            equipamento13.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento14 = new Equipamento("AGM-65", "Raytheon", 150000, new DateOnly(2023, 11, 5));
-            equipamento14.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento15 = new Equipamento("AGM-88", "Raytheon", 200000, new DateOnly(2023, 12, 10));
-            equipamento15.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento16 = new Equipamento("AGM-114R", "Lockheed Martin", 300000, new DateOnly(2024, 1, 15));
-            equipamento16.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento17 = new Equipamento("AGM-176", "Raytheon", 500000, new DateOnly(2024, 2, 20));
-            equipamento17.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento18 = new Equipamento("AGM-158B", "Lockheed Martin", 800000, new DateOnly(2024, 3, 25));
-            equipamento18.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento19 = new Equipamento("AGM-158C", "Lockheed Martin", 1000000, new DateOnly(2024, 4, 30));
-            equipamento19.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento20 = new Equipamento("AGM-158D", "Lockheed Martin", 1200000, new DateOnly(2024, 5, 5));
-            equipamento20.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento48 = new Equipamento("AGM-164", "Lockheed Martin", 15000000, new DateOnly(2026, 9, 25));
-            equipamento48.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento49 = new Equipamento("AGM-165", "Lockheed Martin", 15500000, new DateOnly(2026, 10, 30));
-            equipamento49.Id = GeradorIds.GerarIdEquipamento();
-            Equipamento equipamento50 = new Equipamento("AGM-166", "Lockheed Martin", 16000000, new DateOnly(2026, 11, 5));
-            equipamento50.Id = GeradorIds.GerarIdEquipamento();
+            Equipamento equipamento1 = new("Sidewinder", "Raytheon", 380069, new DateOnly(2022, 5, 1)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento2 = new("Sparrow", "Raytheon", 125000, new DateOnly(2021, 8, 15)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento3 = new("Tomahawk", "Raytheon", 1500000, new DateOnly(2020, 12, 20)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento4 = new("Hellfire", "Lockheed Martin", 110000, new DateOnly(2023, 1, 10)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento5 = new("Javelin", "Lockheed Martin", 178000, new DateOnly(2023, 2, 5)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento6 = new("Stinger", "Raytheon", 38000, new DateOnly(2023, 3, 12)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento7 = new("Patriot", "Raytheon", 10000000, new DateOnly(2023, 4, 18)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento8 = new("AIM-120", "Raytheon", 500000, new DateOnly(2023, 5, 25)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento9 = new("AIM-9", "Raytheon", 200000, new DateOnly(2023, 6, 30)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento10 = new("AIM-7", "Raytheon", 300000, new DateOnly(2023, 7, 15)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento11 = new("AGM-86", "Boeing", 2000000, new DateOnly(2023, 8, 20)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento12 = new("AGM-114", "Lockheed Martin", 700000, new DateOnly(2023, 9, 25)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento13 = new("AGM-158", "Lockheed Martin", 1200000, new DateOnly(2023, 10, 30)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento14 = new("AGM-65", "Raytheon", 150000, new DateOnly(2023, 11, 5)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento15 = new("AGM-88", "Raytheon", 200000, new DateOnly(2023, 12, 10)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento16 = new("AGM-114R", "Lockheed Martin", 300000, new DateOnly(2024, 1, 15)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento17 = new("AGM-176", "Raytheon", 500000, new DateOnly(2024, 2, 20)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento18 = new("AGM-158B", "Lockheed Martin", 800000, new DateOnly(2024, 3, 25)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento19 = new("AGM-158C", "Lockheed Martin", 1000000, new DateOnly(2024, 4, 30)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento20 = new("AGM-158D", "Lockheed Martin", 1200000, new DateOnly(2024, 5, 5)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento48 = new("AGM-164", "Lockheed Martin", 15000000, new DateOnly(2026, 9, 25)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento49 = new("AGM-165", "Lockheed Martin", 15500000, new DateOnly(2026, 10, 30)) { Id = GeradorIds.GerarIdEquipamento() };
+            Equipamento equipamento50 = new("AGM-166", "Lockheed Martin", 16000000, new DateOnly(2026, 11, 5)) { Id = GeradorIds.GerarIdEquipamento() };
             equipamentos.Add(equipamento1);
             equipamentos.Add(equipamento2);
             equipamentos.Add(equipamento3);
@@ -237,6 +250,6 @@ namespace GestãoDeEquipamentos.WinFormsApp
             PopularControles(equipamentos[e.RowIndex]);
         }
 
-     
+
     }
 }

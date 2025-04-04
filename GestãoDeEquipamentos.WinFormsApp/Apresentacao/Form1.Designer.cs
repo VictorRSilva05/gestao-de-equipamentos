@@ -384,6 +384,7 @@
             buttonSalvarChamado.TabIndex = 13;
             buttonSalvarChamado.Text = "Salvar";
             buttonSalvarChamado.UseVisualStyleBackColor = false;
+            buttonSalvarChamado.Click += buttonSalvarChamado_Click;
             // 
             // buttonLimparChamado
             // 
