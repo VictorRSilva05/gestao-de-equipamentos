@@ -12,9 +12,11 @@ namespace GestãoDeEquipamentos.WinFormsApp.Negocio
         public string Nome;
         public string Fabricante;
         public decimal PrecoAquisicao;
-        public DateTime DataFabricacao;
-
-        public Equipamento(string nome, string fabricante, decimal precoAquisicao, DateTime dataFabricacao)
+        public DateOnly DataFabricacao;
+        public Equipamento()
+        {
+        }
+        public Equipamento(string nome, string fabricante, decimal precoAquisicao, DateOnly dataFabricacao)
         {
             Nome = nome;
             Fabricante = fabricante;
