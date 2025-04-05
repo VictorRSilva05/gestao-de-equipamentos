@@ -76,7 +76,7 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(682, 159);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(657, 609);
+            dataGridView1.Size = new Size(600, 609);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -84,10 +84,10 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Arial", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Orbitron", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(682, 97);
             label1.Name = "label1";
-            label1.Size = new Size(167, 44);
+            label1.Size = new Size(189, 46);
             label1.TabIndex = 1;
             label1.Text = "Estoque";
             // 
@@ -95,17 +95,17 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Arial", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Orbitron", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.Location = new Point(12, 97);
             label2.Name = "label2";
-            label2.Size = new Size(490, 44);
+            label2.Size = new Size(552, 46);
             label2.TabIndex = 2;
             label2.Text = "Controle de equipamentos";
             // 
             // textBoxPreco
             // 
             textBoxPreco.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPreco.Location = new Point(380, 3);
+            textBoxPreco.Location = new Point(383, 3);
             textBoxPreco.Name = "textBoxPreco";
             textBoxPreco.Size = new Size(118, 29);
             textBoxPreco.TabIndex = 9;
@@ -114,17 +114,17 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Font = new Font("Orbitron", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.Location = new Point(259, 0);
             label6.Name = "label6";
-            label6.Size = new Size(115, 38);
+            label6.Size = new Size(116, 38);
             label6.TabIndex = 8;
             label6.Text = "Preço equipamento:";
             // 
             // textBoxFabricante
             // 
             textBoxFabricante.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxFabricante.Location = new Point(121, 85);
+            textBoxFabricante.Location = new Point(127, 85);
             textBoxFabricante.Name = "textBoxFabricante";
             textBoxFabricante.Size = new Size(118, 29);
             textBoxFabricante.TabIndex = 7;
@@ -132,7 +132,7 @@
             // textBoxNome
             // 
             textBoxNome.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxNome.Location = new Point(121, 44);
+            textBoxNome.Location = new Point(127, 44);
             textBoxNome.Name = "textBoxNome";
             textBoxNome.Size = new Size(118, 29);
             textBoxNome.TabIndex = 6;
@@ -140,7 +140,7 @@
             // textBoxId
             // 
             textBoxId.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxId.Location = new Point(121, 3);
+            textBoxId.Location = new Point(127, 3);
             textBoxId.Name = "textBoxId";
             textBoxId.Size = new Size(118, 29);
             textBoxId.TabIndex = 5;
@@ -149,17 +149,17 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Orbitron", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.Location = new Point(3, 41);
             label4.Name = "label4";
-            label4.Size = new Size(109, 41);
+            label4.Size = new Size(116, 38);
             label4.TabIndex = 1;
             label4.Text = "Nome equipamento:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Orbitron", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.Location = new Point(3, 0);
             label3.Name = "label3";
             label3.Size = new Size(106, 38);
@@ -169,20 +169,20 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Font = new Font("Orbitron", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.Location = new Point(3, 82);
             label5.Name = "label5";
-            label5.Size = new Size(109, 43);
+            label5.Size = new Size(116, 38);
             label5.TabIndex = 4;
             label5.Text = "Fabricante equipamento:";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Font = new Font("Orbitron", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.Location = new Point(259, 41);
             label7.Name = "label7";
-            label7.Size = new Size(95, 38);
+            label7.Size = new Size(99, 38);
             label7.TabIndex = 10;
             label7.Text = "Data de fabricação:";
             // 
@@ -190,10 +190,10 @@
             // 
             tableLayoutPanel1.BackColor = Color.Transparent;
             tableLayoutPanel1.ColumnCount = 4;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 46.037735F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 53.962265F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 121F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 243F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 48.4375F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 51.5625F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 124F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 240F));
             tableLayoutPanel1.Controls.Add(dateTimePickerDataFabricacao, 3, 1);
             tableLayoutPanel1.Controls.Add(label7, 2, 1);
             tableLayoutPanel1.Controls.Add(label5, 0, 2);
@@ -223,15 +223,15 @@
             // 
             // dateTimePickerDataFabricacao
             // 
-            dateTimePickerDataFabricacao.Location = new Point(380, 44);
+            dateTimePickerDataFabricacao.Location = new Point(383, 44);
             dateTimePickerDataFabricacao.Name = "dateTimePickerDataFabricacao";
-            dateTimePickerDataFabricacao.Size = new Size(237, 23);
+            dateTimePickerDataFabricacao.Size = new Size(235, 23);
             dateTimePickerDataFabricacao.TabIndex = 4;
             // 
             // buttonLimpar
             // 
             buttonLimpar.BackColor = Color.DeepSkyBlue;
-            buttonLimpar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonLimpar.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLimpar.Location = new Point(3, 161);
             buttonLimpar.Name = "buttonLimpar";
             buttonLimpar.Size = new Size(112, 35);
@@ -243,8 +243,8 @@
             // buttonSalvar
             // 
             buttonSalvar.BackColor = Color.Green;
-            buttonSalvar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonSalvar.Location = new Point(121, 161);
+            buttonSalvar.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonSalvar.Location = new Point(127, 161);
             buttonSalvar.Name = "buttonSalvar";
             buttonSalvar.Size = new Size(112, 35);
             buttonSalvar.TabIndex = 13;
@@ -255,7 +255,7 @@
             // buttonAtualizar
             // 
             buttonAtualizar.BackColor = Color.Yellow;
-            buttonAtualizar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonAtualizar.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonAtualizar.Location = new Point(259, 161);
             buttonAtualizar.Name = "buttonAtualizar";
             buttonAtualizar.Size = new Size(105, 35);
@@ -267,8 +267,8 @@
             // buttonDeletar
             // 
             buttonDeletar.BackColor = Color.Red;
-            buttonDeletar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonDeletar.Location = new Point(380, 161);
+            buttonDeletar.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonDeletar.Location = new Point(383, 161);
             buttonDeletar.Name = "buttonDeletar";
             buttonDeletar.Size = new Size(112, 35);
             buttonDeletar.TabIndex = 14;
@@ -279,9 +279,9 @@
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(1376, 159);
+            dataGridView2.Location = new Point(1299, 159);
             dataGridView2.Name = "dataGridView2";
-            dataGridView2.Size = new Size(516, 609);
+            dataGridView2.Size = new Size(585, 609);
             dataGridView2.TabIndex = 4;
             dataGridView2.CellClick += dataGridView2_CellClick;
             // 
@@ -289,10 +289,10 @@
             // 
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
-            label8.Font = new Font("Arial", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(1391, 97);
+            label8.Font = new Font("Orbitron", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(1313, 97);
             label8.Name = "label8";
-            label8.Size = new Size(399, 44);
+            label8.Size = new Size(454, 46);
             label8.TabIndex = 5;
             label8.Text = "Chamados em aberto";
             // 
@@ -300,10 +300,10 @@
             // 
             label14.AutoSize = true;
             label14.BackColor = Color.Transparent;
-            label14.Font = new Font("Arial", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.Font = new Font("Orbitron", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label14.Location = new Point(12, 476);
             label14.Name = "label14";
-            label14.Size = new Size(422, 44);
+            label14.Size = new Size(477, 46);
             label14.TabIndex = 7;
             label14.Text = "Controle de chamados";
             // 
@@ -317,10 +317,10 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Font = new Font("Orbitron", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.Location = new Point(259, 0);
             label9.Name = "label9";
-            label9.Size = new Size(103, 38);
+            label9.Size = new Size(112, 38);
             label9.TabIndex = 10;
             label9.Text = "Abertura do chamado:";
             // 
@@ -328,7 +328,7 @@
             // 
             comboBoxTipoChamado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBoxTipoChamado.FormattingEnabled = true;
-            comboBoxTipoChamado.Location = new Point(124, 45);
+            comboBoxTipoChamado.Location = new Point(127, 45);
             comboBoxTipoChamado.Name = "comboBoxTipoChamado";
             comboBoxTipoChamado.Size = new Size(118, 29);
             comboBoxTipoChamado.TabIndex = 15;
@@ -336,7 +336,7 @@
             // buttonDeletarChamado
             // 
             buttonDeletarChamado.BackColor = Color.Red;
-            buttonDeletarChamado.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonDeletarChamado.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonDeletarChamado.Location = new Point(380, 200);
             buttonDeletarChamado.Name = "buttonDeletarChamado";
             buttonDeletarChamado.Size = new Size(112, 35);
@@ -348,7 +348,7 @@
             // buttonAtualizarChamado
             // 
             buttonAtualizarChamado.BackColor = Color.Yellow;
-            buttonAtualizarChamado.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonAtualizarChamado.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonAtualizarChamado.Location = new Point(259, 200);
             buttonAtualizarChamado.Name = "buttonAtualizarChamado";
             buttonAtualizarChamado.Size = new Size(105, 35);
@@ -360,8 +360,8 @@
             // buttonSalvarChamado
             // 
             buttonSalvarChamado.BackColor = Color.Green;
-            buttonSalvarChamado.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonSalvarChamado.Location = new Point(124, 200);
+            buttonSalvarChamado.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonSalvarChamado.Location = new Point(127, 200);
             buttonSalvarChamado.Name = "buttonSalvarChamado";
             buttonSalvarChamado.Size = new Size(112, 35);
             buttonSalvarChamado.TabIndex = 13;
@@ -372,7 +372,7 @@
             // buttonLimparChamado
             // 
             buttonLimparChamado.BackColor = Color.DeepSkyBlue;
-            buttonLimparChamado.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonLimparChamado.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonLimparChamado.Location = new Point(3, 200);
             buttonLimparChamado.Name = "buttonLimparChamado";
             buttonLimparChamado.Size = new Size(112, 35);
@@ -384,7 +384,7 @@
             // textBoxIdEquipamentoChamado
             // 
             textBoxIdEquipamentoChamado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxIdEquipamentoChamado.Location = new Point(124, 84);
+            textBoxIdEquipamentoChamado.Location = new Point(127, 84);
             textBoxIdEquipamentoChamado.Name = "textBoxIdEquipamentoChamado";
             textBoxIdEquipamentoChamado.Size = new Size(118, 29);
             textBoxIdEquipamentoChamado.TabIndex = 7;
@@ -392,7 +392,7 @@
             // textBoxIdChamado
             // 
             textBoxIdChamado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxIdChamado.Location = new Point(124, 3);
+            textBoxIdChamado.Location = new Point(127, 3);
             textBoxIdChamado.Name = "textBoxIdChamado";
             textBoxIdChamado.Size = new Size(118, 29);
             textBoxIdChamado.TabIndex = 5;
@@ -400,30 +400,30 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.Font = new Font("Orbitron", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label12.Location = new Point(3, 42);
             label12.Name = "label12";
-            label12.Size = new Size(86, 38);
+            label12.Size = new Size(87, 38);
             label12.TabIndex = 1;
             label12.Text = "Tipo do chamado:";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.Font = new Font("Orbitron", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label11.Location = new Point(3, 0);
             label11.Name = "label11";
-            label11.Size = new Size(86, 38);
+            label11.Size = new Size(87, 38);
             label11.TabIndex = 0;
             label11.Text = "ID do chamado:";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.Font = new Font("Orbitron", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.Location = new Point(3, 81);
             label10.Name = "label10";
-            label10.Size = new Size(115, 38);
+            label10.Size = new Size(116, 38);
             label10.TabIndex = 4;
             label10.Text = "ID do equipamento:";
             // 
@@ -431,8 +431,8 @@
             // 
             tableLayoutPanel2.BackColor = Color.Transparent;
             tableLayoutPanel2.ColumnCount = 4;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 47.265625F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 52.734375F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 48.4375F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 51.5625F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 121F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 243F));
             tableLayoutPanel2.Controls.Add(label10, 0, 2);
@@ -471,10 +471,10 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.Font = new Font("Orbitron", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label15.Location = new Point(259, 119);
             label15.Name = "label15";
-            label15.Size = new Size(114, 38);
+            label15.Size = new Size(111, 38);
             label15.TabIndex = 17;
             label15.Text = "Descrição do chamado:";
             // 

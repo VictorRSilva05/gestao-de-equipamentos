@@ -59,5 +59,25 @@ namespace GestãoDeEquipamentos.WinFormsApp.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Orbitron_VariableFont_wght {
+            get {
+                object obj = ResourceManager.GetObject("Orbitron-VariableFont_wght", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Untitled_design {
+            get {
+                object obj = ResourceManager.GetObject("Untitled design", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

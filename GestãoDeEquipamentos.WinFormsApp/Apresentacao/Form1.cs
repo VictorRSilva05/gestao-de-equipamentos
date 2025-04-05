@@ -189,6 +189,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
         private void PopularControlesEquipamento(Equipamento equipamento)
         {
             textBoxId.Text = equipamento.Id.ToString();
+            textBoxIdEquipamentoChamado.Text = equipamento.Id.ToString();
             textBoxNome.Text = equipamento.Nome;
             textBoxFabricante.Text = equipamento.Fabricante;
             textBoxPreco.Text = equipamento.PrecoAquisicao.ToString();
@@ -223,6 +224,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
         private void InicializarDataGridViewEquipamentos()
         {
             dataGridView1.Columns.Add("Id", "ID");
+            dataGridView1.Columns[0].Width = 40;
             dataGridView1.Columns.Add("Nome", "Nome");
             dataGridView1.Columns.Add("Fabricante", "Fabricante");
             dataGridView1.Columns.Add("PrecoAquisicao", "Preço de Aquisição");
@@ -233,6 +235,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
         private void InicializarDataGridViewChamados()
         {
             dataGridView2.Columns.Add("Id", "ID");
+            dataGridView2.Columns[0].Width = 40;
             dataGridView2.Columns.Add("TituloChamado", "Título do Chamado");
             dataGridView2.Columns.Add("DescricaoChamado", "Descrição do Chamado");
             dataGridView2.Columns.Add("Equipamento", "Equipamento");
