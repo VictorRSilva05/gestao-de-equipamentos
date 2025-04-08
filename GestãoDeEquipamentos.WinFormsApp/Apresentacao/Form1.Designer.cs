@@ -66,7 +66,7 @@
             label15 = new Label();
             button1 = new Button();
             label13 = new Label();
-            textBoxFabricante = new TextBox();
+            comboBoxFabricante = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -195,13 +195,13 @@
             tableLayoutPanel1.Controls.Add(label4, 0, 1);
             tableLayoutPanel1.Controls.Add(textBoxId, 1, 0);
             tableLayoutPanel1.Controls.Add(textBoxNome, 1, 1);
-            tableLayoutPanel1.Controls.Add(textBoxFabricante, 1, 2);
             tableLayoutPanel1.Controls.Add(label6, 2, 0);
             tableLayoutPanel1.Controls.Add(textBoxPreco, 3, 0);
             tableLayoutPanel1.Controls.Add(buttonLimpar, 0, 4);
             tableLayoutPanel1.Controls.Add(buttonSalvar, 1, 4);
             tableLayoutPanel1.Controls.Add(buttonAtualizar, 2, 4);
             tableLayoutPanel1.Controls.Add(buttonDeletar, 3, 4);
+            tableLayoutPanel1.Controls.Add(comboBoxFabricante, 1, 2);
             tableLayoutPanel1.Location = new Point(30, 159);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 5;
@@ -493,13 +493,14 @@
             label13.TabIndex = 14;
             label13.Text = "Controle de fabricantes";
             // 
-            // textBoxFabricante
+            // comboBoxFabricante
             // 
-            textBoxFabricante.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxFabricante.Location = new Point(127, 97);
-            textBoxFabricante.Name = "textBoxFabricante";
-            textBoxFabricante.Size = new Size(118, 29);
-            textBoxFabricante.TabIndex = 7;
+            comboBoxFabricante.Font = new Font("Segoe UI", 12F);
+            comboBoxFabricante.FormattingEnabled = true;
+            comboBoxFabricante.Location = new Point(127, 97);
+            comboBoxFabricante.Name = "comboBoxFabricante";
+            comboBoxFabricante.Size = new Size(121, 29);
+            comboBoxFabricante.TabIndex = 15;
             // 
             // Form1
             // 
@@ -571,6 +572,6 @@
         private Label label15;
         private Button button1;
         private Label label13;
-        private TextBox textBoxFabricante;
+        private ComboBox comboBoxFabricante;
     }
 }

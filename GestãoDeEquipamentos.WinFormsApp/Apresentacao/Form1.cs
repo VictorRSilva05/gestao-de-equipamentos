@@ -5,32 +5,39 @@ namespace GestãoDeEquipamentos.WinFormsApp
 {
     public partial class Form1 : Form
     {
-       public RepositorioChamado repositorioChamado = new RepositorioChamado();
-       public RepositorioEquipamento repositorioEquipamento = new RepositorioEquipamento();
+        public RepositorioChamado repositorioChamado = new RepositorioChamado();
+        public RepositorioEquipamento repositorioEquipamento = new RepositorioEquipamento();
+        public RepositorioFabricantes repositorioFabricantes = new RepositorioFabricantes();
         public Form1()
         {
             InitializeComponent();
             InicializarDataGridViewEquipamentos();
             InicializarDataGridViewChamados();
-            InicializarComboBox();
+            InicializarComboBoxChamado();
             CargaInicialEquipamento();
+            CargaInicialFabricantes();
             AtualizarDataGridViewEquipamentos();
             AtualizarDataGridViewChamados();
         }
 
-        private void InicializarComboBox()
+        private void InicializarComboBoxChamado()
         {
             comboBoxTipoChamado.Items.AddRange(Enum.GetNames(typeof(TipoChamadoEnum)));
+        }
+
+        private void InicializarComboBoxFabricantes()
+        {
+            comboBoxFabricante.Items.AddRange(repositorioFabricantes.fabricantes);
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
             string nome = textBoxNome.Text;
-            string fabricante = textBoxFabricante.Text;
+            string fabricante = comboBoxFabricante.Text;
             string auxPrecoAquisicao = textBoxPreco.Text;
             DateOnly dataFabricacao = DateOnly.FromDateTime(dateTimePickerDataFabricacao.Value);
 
-            if (string.IsNullOrEmpty(textBoxNome.Text) || string.IsNullOrEmpty(textBoxFabricante.Text) || string.IsNullOrEmpty(textBoxPreco.Text))
+            if (string.IsNullOrEmpty(textBoxNome.Text) || string.IsNullOrEmpty(comboBoxFabricante.Text) || string.IsNullOrEmpty(textBoxPreco.Text))
             {
                 MessageBox.Show("Preencha todos os campos.");
                 return;
@@ -118,7 +125,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
                 if (equipamento != null)
                 {
                     equipamento.Nome = textBoxNome.Text;
-                    equipamento.Fabricante = textBoxFabricante.Text;
+                    equipamento.Fabricante = comboBoxFabricante.Text;
                     equipamento.PrecoAquisicao = Convert.ToDecimal(textBoxPreco.Text);
                     equipamento.DataFabricacao = DateOnly.FromDateTime(dateTimePickerDataFabricacao.Value);
                     MessageBox.Show($"Equipamento {equipamento.Nome} atualizado com sucesso!");
@@ -183,7 +190,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
         {
             textBoxId.Clear();
             textBoxNome.Clear();
-            textBoxFabricante.Clear();
+            comboBoxFabricante.SelectedIndex = -1;
             textBoxPreco.Clear();
             dateTimePickerDataFabricacao.Value = DateTime.Now;
         }
@@ -193,7 +200,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             textBoxId.Text = equipamento.Id.ToString();
             textBoxIdEquipamentoChamado.Text = equipamento.Id.ToString();
             textBoxNome.Text = equipamento.Nome;
-            textBoxFabricante.Text = equipamento.Fabricante;
+            comboBoxFabricante.Text = equipamento.Fabricante;
             textBoxPreco.Text = equipamento.PrecoAquisicao.ToString();
         }
 
@@ -326,7 +333,17 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new FormFabricantes().ShowDialog();
+            new FormFabricantes(repositorioFabricantes).ShowDialog();
+        }
+
+        private void CargaInicialFabricantes()
+        {
+            Fabricante fabricante1 = new("Raytheon", "69696", "raytheondefence@raytheon.com") { Id = GeradorIds.GerarIdFabricantes() };
+            Fabricante fabricante2 = new("Lockheed Martin", "420420", "lockheedmartin@lockheedmartin.com") { Id = GeradorIds.GerarIdFabricantes() };
+            Fabricante fabricante3 = new("Boeing", "24242", "boeingindustries@boeing.com") { Id = GeradorIds.GerarIdFabricantes() };
+            repositorioFabricantes.fabricantes.Add(fabricante1);
+            repositorioFabricantes.fabricantes.Add(fabricante2);
+            repositorioFabricantes.fabricantes.Add(fabricante3);
         }
     }
 }

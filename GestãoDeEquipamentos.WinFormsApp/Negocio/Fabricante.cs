@@ -20,4 +20,9 @@ public class Fabricante
         Telefone = telefone;
         Email = email;
     }
+
+    public override string ToString()
+    {
+        return Nome;
+    }
 }
