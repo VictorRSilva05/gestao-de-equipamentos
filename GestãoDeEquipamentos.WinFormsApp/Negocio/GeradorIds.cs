@@ -10,6 +10,7 @@ namespace GestãoDeEquipamentos.WinFormsApp.Negocio
     {
         public static int IdEquipamentos = 0;
         public static int IdChamados = 0;
+        public static int IdFabricantes = 0;
 
         public static int GerarIdEquipamento()
         {
@@ -20,6 +21,12 @@ namespace GestãoDeEquipamentos.WinFormsApp.Negocio
         {
             IdChamados++;
             return IdChamados;
+        }
+
+        public static int GerarIdFabricantes()
+        {
+            IdFabricantes++;
+            return IdFabricantes;
         }
     }
 }
