@@ -40,7 +40,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             string auxPrecoAquisicao = textBoxPreco.Text;
             DateOnly dataFabricacao = DateOnly.FromDateTime(dateTimePickerDataFabricacao.Value);
 
-            if (string.IsNullOrEmpty(textBoxNome.Text) || string.IsNullOrEmpty(comboBoxFabricante.Text) || string.IsNullOrEmpty(textBoxPreco.Text))
+            if (string.IsNullOrEmpty(textBoxNome.Text) || string.IsNullOrEmpty(comboBoxFabricante.Text) || string.IsNullOrEmpty(textBoxPreco.Text) || nome.Length < 6)
             {
                 MessageBox.Show("Preencha todos os campos.");
                 return;
