@@ -75,4 +75,30 @@ public partial class FormFabricantes : Form
         MessageBox.Show($"Fabricante com ID {textBoxId.Text} removido com sucesso!");
         LimparCampos();
     }
+
+    private void buttonAtualizar_Click(object sender, EventArgs e)
+    {
+        if (string.IsNullOrEmpty(textBoxId.Text))
+        {
+            MessageBox.Show("Por favor, insira um id válido.");
+            return;
+        }
+        else
+        {
+            int id = Convert.ToInt32(textBoxId.Text);
+            Fabricante fabricante = fabricantes.FirstOrDefault(e => e.Id == id);
+            if (fabricante != null)
+            {
+                fabricante.Nome = textBoxNome.Text;
+                fabricante.Email = textBoxEmail.Text;
+                fabricante.Telefone = maskedTextBoxTelefone.Text;
+                MessageBox.Show($"Fabricante {fabricante.Nome} atualizado com sucesso!");
+                LimparCampos();
+            }
+            else
+            {
+                MessageBox.Show("Fabricante não encontrado.");
+            }
+        }
+    }
 }

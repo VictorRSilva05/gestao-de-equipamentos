@@ -208,6 +208,7 @@
             buttonAtualizar.TabIndex = 13;
             buttonAtualizar.Text = "Atualizar";
             buttonAtualizar.UseVisualStyleBackColor = false;
+            buttonAtualizar.Click += buttonAtualizar_Click;
             // 
             // buttonDeletar
             // 
