@@ -65,6 +65,8 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             richTextBoxChamado = new RichTextBox();
             label15 = new Label();
+            button1 = new Button();
+            label13 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -124,7 +126,7 @@
             // textBoxFabricante
             // 
             textBoxFabricante.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxFabricante.Location = new Point(127, 85);
+            textBoxFabricante.Location = new Point(127, 97);
             textBoxFabricante.Name = "textBoxFabricante";
             textBoxFabricante.Size = new Size(118, 29);
             textBoxFabricante.TabIndex = 7;
@@ -132,7 +134,7 @@
             // textBoxNome
             // 
             textBoxNome.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxNome.Location = new Point(127, 44);
+            textBoxNome.Location = new Point(127, 50);
             textBoxNome.Name = "textBoxNome";
             textBoxNome.Size = new Size(118, 29);
             textBoxNome.TabIndex = 6;
@@ -150,7 +152,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Orbitron", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(3, 41);
+            label4.Location = new Point(3, 47);
             label4.Name = "label4";
             label4.Size = new Size(116, 38);
             label4.TabIndex = 1;
@@ -170,7 +172,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Orbitron", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(3, 82);
+            label5.Location = new Point(3, 94);
             label5.Name = "label5";
             label5.Size = new Size(116, 38);
             label5.TabIndex = 4;
@@ -180,7 +182,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Orbitron", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(259, 41);
+            label7.Location = new Point(259, 47);
             label7.Name = "label7";
             label7.Size = new Size(99, 38);
             label7.TabIndex = 10;
@@ -210,20 +212,18 @@
             tableLayoutPanel1.Controls.Add(buttonDeletar, 3, 4);
             tableLayoutPanel1.Location = new Point(30, 159);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 7;
+            tableLayoutPanel1.RowCount = 5;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 43F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 33F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 41F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 49F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 46F));
-            tableLayoutPanel1.Size = new Size(621, 294);
+            tableLayoutPanel1.Size = new Size(621, 212);
             tableLayoutPanel1.TabIndex = 3;
             // 
             // dateTimePickerDataFabricacao
             // 
-            dateTimePickerDataFabricacao.Location = new Point(383, 44);
+            dateTimePickerDataFabricacao.Location = new Point(383, 50);
             dateTimePickerDataFabricacao.Name = "dateTimePickerDataFabricacao";
             dateTimePickerDataFabricacao.Size = new Size(235, 23);
             dateTimePickerDataFabricacao.TabIndex = 4;
@@ -232,7 +232,7 @@
             // 
             buttonLimpar.BackColor = Color.DeepSkyBlue;
             buttonLimpar.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonLimpar.Location = new Point(3, 161);
+            buttonLimpar.Location = new Point(3, 173);
             buttonLimpar.Name = "buttonLimpar";
             buttonLimpar.Size = new Size(112, 35);
             buttonLimpar.TabIndex = 12;
@@ -244,7 +244,7 @@
             // 
             buttonSalvar.BackColor = Color.Green;
             buttonSalvar.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonSalvar.Location = new Point(127, 161);
+            buttonSalvar.Location = new Point(127, 173);
             buttonSalvar.Name = "buttonSalvar";
             buttonSalvar.Size = new Size(112, 35);
             buttonSalvar.TabIndex = 13;
@@ -256,7 +256,7 @@
             // 
             buttonAtualizar.BackColor = Color.Yellow;
             buttonAtualizar.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonAtualizar.Location = new Point(259, 161);
+            buttonAtualizar.Location = new Point(259, 173);
             buttonAtualizar.Name = "buttonAtualizar";
             buttonAtualizar.Size = new Size(105, 35);
             buttonAtualizar.TabIndex = 13;
@@ -268,7 +268,7 @@
             // 
             buttonDeletar.BackColor = Color.Red;
             buttonDeletar.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonDeletar.Location = new Point(383, 161);
+            buttonDeletar.Location = new Point(383, 173);
             buttonDeletar.Name = "buttonDeletar";
             buttonDeletar.Size = new Size(112, 35);
             buttonDeletar.TabIndex = 14;
@@ -478,6 +478,29 @@
             label15.TabIndex = 17;
             label15.Text = "Descrição do chamado:";
             // 
+            // button1
+            // 
+            button1.BackColor = Color.DarkGray;
+            button1.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(289, 395);
+            button1.Name = "button1";
+            button1.Size = new Size(236, 35);
+            button1.TabIndex = 13;
+            button1.Text = "Fabricantes";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = Color.Transparent;
+            label13.Font = new Font("Orbitron", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.Location = new Point(30, 403);
+            label13.Name = "label13";
+            label13.Size = new Size(201, 19);
+            label13.TabIndex = 14;
+            label13.Text = "Controle de fabricantes";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -485,6 +508,8 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(label13);
+            Controls.Add(button1);
             Controls.Add(label14);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(label8);
@@ -545,5 +570,7 @@
         private TableLayoutPanel tableLayoutPanel2;
         private RichTextBox richTextBoxChamado;
         private Label label15;
+        private Button button1;
+        private Label label13;
     }
 }

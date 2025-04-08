@@ -1,3 +1,4 @@
+using GestãoDeEquipamentos.WinFormsApp.Apresentacao;
 using GestãoDeEquipamentos.WinFormsApp.Negocio;
 namespace GestãoDeEquipamentos.WinFormsApp
 {
@@ -5,6 +6,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
     {
         List<Equipamento> equipamentos = new List<Equipamento>();
         List<Chamado> chamados = new List<Chamado>();
+        List<Fabricante> fabricantes = new List<Fabricante>();
         public Form1()
         {
             InitializeComponent();
@@ -320,6 +322,11 @@ namespace GestãoDeEquipamentos.WinFormsApp
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             PopularControlesChamado(chamados[e.RowIndex]);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new FormFabricantes().ShowDialog();
         }
     }
 }
