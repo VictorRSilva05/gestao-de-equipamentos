@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
+            textBoxQtd = new TextBox();
+            label5 = new Label();
             label7 = new Label();
             label3 = new Label();
             label4 = new Label();
             textBoxId = new TextBox();
             textBoxNome = new TextBox();
             label6 = new Label();
-            label2 = new Label();
-            buttonDeletar = new Button();
-            buttonAtualizar = new Button();
-            buttonSalvar = new Button();
-            buttonLimpar = new Button();
             maskedTextBoxTelefone = new MaskedTextBox();
             textBoxEmail = new TextBox();
+            buttonLimpar = new Button();
+            buttonSalvar = new Button();
+            buttonAtualizar = new Button();
+            buttonDeletar = new Button();
+            label2 = new Label();
             dataGridView1 = new DataGridView();
             label1 = new Label();
-            label5 = new Label();
-            textBoxQtd = new TextBox();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -81,6 +81,24 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 41F));
             tableLayoutPanel1.Size = new Size(621, 172);
             tableLayoutPanel1.TabIndex = 4;
+            // 
+            // textBoxQtd
+            // 
+            textBoxQtd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxQtd.Location = new Point(135, 89);
+            textBoxQtd.Name = "textBoxQtd";
+            textBoxQtd.Size = new Size(118, 29);
+            textBoxQtd.TabIndex = 18;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Orbitron", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(3, 86);
+            label5.Name = "label5";
+            label5.Size = new Size(126, 38);
+            label5.TabIndex = 17;
+            label5.Text = "Qtd equipamentos:";
             // 
             // label7
             // 
@@ -119,6 +137,7 @@
             textBoxId.Name = "textBoxId";
             textBoxId.Size = new Size(118, 29);
             textBoxId.TabIndex = 5;
+            textBoxId.KeyPress += textBoxId_KeyPress;
             // 
             // textBoxNome
             // 
@@ -138,61 +157,6 @@
             label6.TabIndex = 8;
             label6.Text = "Telefone equipamento:";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Orbitron", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(15, 22);
-            label2.Name = "label2";
-            label2.Size = new Size(500, 46);
-            label2.TabIndex = 5;
-            label2.Text = "Controle de fabricantes";
-            // 
-            // buttonDeletar
-            // 
-            buttonDeletar.BackColor = Color.Red;
-            buttonDeletar.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonDeletar.Location = new Point(383, 133);
-            buttonDeletar.Name = "buttonDeletar";
-            buttonDeletar.Size = new Size(112, 35);
-            buttonDeletar.TabIndex = 14;
-            buttonDeletar.Text = "Deletar";
-            buttonDeletar.UseVisualStyleBackColor = false;
-            // 
-            // buttonAtualizar
-            // 
-            buttonAtualizar.BackColor = Color.Yellow;
-            buttonAtualizar.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonAtualizar.Location = new Point(259, 133);
-            buttonAtualizar.Name = "buttonAtualizar";
-            buttonAtualizar.Size = new Size(105, 35);
-            buttonAtualizar.TabIndex = 13;
-            buttonAtualizar.Text = "Atualizar";
-            buttonAtualizar.UseVisualStyleBackColor = false;
-            // 
-            // buttonSalvar
-            // 
-            buttonSalvar.BackColor = Color.Green;
-            buttonSalvar.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonSalvar.Location = new Point(135, 133);
-            buttonSalvar.Name = "buttonSalvar";
-            buttonSalvar.Size = new Size(112, 35);
-            buttonSalvar.TabIndex = 13;
-            buttonSalvar.Text = "Salvar";
-            buttonSalvar.UseVisualStyleBackColor = false;
-            // 
-            // buttonLimpar
-            // 
-            buttonLimpar.BackColor = Color.DeepSkyBlue;
-            buttonLimpar.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonLimpar.Location = new Point(3, 133);
-            buttonLimpar.Name = "buttonLimpar";
-            buttonLimpar.Size = new Size(112, 35);
-            buttonLimpar.TabIndex = 12;
-            buttonLimpar.Text = "Limpar";
-            buttonLimpar.UseVisualStyleBackColor = false;
-            // 
             // maskedTextBoxTelefone
             // 
             maskedTextBoxTelefone.Font = new Font("Segoe UI", 12F);
@@ -209,6 +173,62 @@
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.Size = new Size(235, 29);
             textBoxEmail.TabIndex = 16;
+            // 
+            // buttonLimpar
+            // 
+            buttonLimpar.BackColor = Color.DeepSkyBlue;
+            buttonLimpar.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonLimpar.Location = new Point(3, 133);
+            buttonLimpar.Name = "buttonLimpar";
+            buttonLimpar.Size = new Size(112, 35);
+            buttonLimpar.TabIndex = 12;
+            buttonLimpar.Text = "Limpar";
+            buttonLimpar.UseVisualStyleBackColor = false;
+            buttonLimpar.Click += buttonLimpar_Click;
+            // 
+            // buttonSalvar
+            // 
+            buttonSalvar.BackColor = Color.Green;
+            buttonSalvar.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonSalvar.Location = new Point(135, 133);
+            buttonSalvar.Name = "buttonSalvar";
+            buttonSalvar.Size = new Size(112, 35);
+            buttonSalvar.TabIndex = 13;
+            buttonSalvar.Text = "Salvar";
+            buttonSalvar.UseVisualStyleBackColor = false;
+            // 
+            // buttonAtualizar
+            // 
+            buttonAtualizar.BackColor = Color.Yellow;
+            buttonAtualizar.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonAtualizar.Location = new Point(259, 133);
+            buttonAtualizar.Name = "buttonAtualizar";
+            buttonAtualizar.Size = new Size(105, 35);
+            buttonAtualizar.TabIndex = 13;
+            buttonAtualizar.Text = "Atualizar";
+            buttonAtualizar.UseVisualStyleBackColor = false;
+            // 
+            // buttonDeletar
+            // 
+            buttonDeletar.BackColor = Color.Red;
+            buttonDeletar.Font = new Font("Orbitron", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonDeletar.Location = new Point(383, 133);
+            buttonDeletar.Name = "buttonDeletar";
+            buttonDeletar.Size = new Size(112, 35);
+            buttonDeletar.TabIndex = 14;
+            buttonDeletar.Text = "Deletar";
+            buttonDeletar.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Orbitron", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(15, 22);
+            label2.Name = "label2";
+            label2.Size = new Size(500, 46);
+            label2.TabIndex = 5;
+            label2.Text = "Controle de fabricantes";
             // 
             // dataGridView1
             // 
@@ -228,24 +248,6 @@
             label1.Size = new Size(266, 46);
             label1.TabIndex = 7;
             label1.Text = "Fabricantes";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Orbitron", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(3, 86);
-            label5.Name = "label5";
-            label5.Size = new Size(126, 38);
-            label5.TabIndex = 17;
-            label5.Text = "Qtd equipamentos:";
-            // 
-            // textBoxQtd
-            // 
-            textBoxQtd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxQtd.Location = new Point(135, 89);
-            textBoxQtd.Name = "textBoxQtd";
-            textBoxQtd.Size = new Size(118, 29);
-            textBoxQtd.TabIndex = 18;
             // 
             // FormFabricantes
             // 
