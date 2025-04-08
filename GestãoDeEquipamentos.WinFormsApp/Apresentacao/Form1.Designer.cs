@@ -46,6 +46,7 @@
             buttonSalvar = new Button();
             buttonAtualizar = new Button();
             buttonDeletar = new Button();
+            comboBoxFabricante = new ComboBox();
             dataGridView2 = new DataGridView();
             label8 = new Label();
             label14 = new Label();
@@ -66,7 +67,6 @@
             label15 = new Label();
             button1 = new Button();
             label13 = new Label();
-            comboBoxFabricante = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -267,6 +267,18 @@
             buttonDeletar.Text = "Deletar";
             buttonDeletar.UseVisualStyleBackColor = false;
             buttonDeletar.Click += buttonDeletar_Click;
+            // 
+            // comboBoxFabricante
+            // 
+            comboBoxFabricante.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxFabricante.Font = new Font("Segoe UI", 12F);
+            comboBoxFabricante.FormattingEnabled = true;
+            comboBoxFabricante.Location = new Point(127, 97);
+            comboBoxFabricante.Name = "comboBoxFabricante";
+            comboBoxFabricante.Size = new Size(121, 29);
+            comboBoxFabricante.TabIndex = 15;
+            comboBoxFabricante.SelectedIndexChanged += comboBoxFabricante_SelectedIndexChanged;
+            comboBoxFabricante.MouseClick += comboBoxFabricante_MouseClick;
             // 
             // dataGridView2
             // 
@@ -492,15 +504,6 @@
             label13.Size = new Size(201, 19);
             label13.TabIndex = 14;
             label13.Text = "Controle de fabricantes";
-            // 
-            // comboBoxFabricante
-            // 
-            comboBoxFabricante.Font = new Font("Segoe UI", 12F);
-            comboBoxFabricante.FormattingEnabled = true;
-            comboBoxFabricante.Location = new Point(127, 97);
-            comboBoxFabricante.Name = "comboBoxFabricante";
-            comboBoxFabricante.Size = new Size(121, 29);
-            comboBoxFabricante.TabIndex = 15;
             // 
             // Form1
             // 

@@ -29,6 +29,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
         private void InicializarComboBoxFabricantes()
         {
+            comboBoxFabricante.Items.Clear();
             comboBoxFabricante.Items.AddRange(repositorioFabricantes.fabricantes.Select(f => f.Nome).ToArray());
         }
 
@@ -298,7 +299,6 @@ namespace GestãoDeEquipamentos.WinFormsApp
             repositorioEquipamento.equipamentos.Add(equipamento4);
             repositorioEquipamento.equipamentos.Add(equipamento5);
             repositorioEquipamento.equipamentos.Add(equipamento6);
-            /*
             repositorioEquipamento.equipamentos.Add(equipamento7);
             repositorioEquipamento.equipamentos.Add(equipamento8);
             repositorioEquipamento.equipamentos.Add(equipamento9);
@@ -316,7 +316,6 @@ namespace GestãoDeEquipamentos.WinFormsApp
             repositorioEquipamento.equipamentos.Add(equipamento48);
             repositorioEquipamento.equipamentos.Add(equipamento49);
             repositorioEquipamento.equipamentos.Add(equipamento50);
-            */
         }
         private void textBoxId_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -359,6 +358,16 @@ namespace GestãoDeEquipamentos.WinFormsApp
             {
                 fabricante.AtualizarQuantidadeEquipamentos(repositorioEquipamento.equipamentos);
             }
+        }
+
+        private void comboBoxFabricante_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void comboBoxFabricante_MouseClick(object sender, MouseEventArgs e)
+        {
+            InicializarComboBoxFabricantes();
         }
     }
 }
