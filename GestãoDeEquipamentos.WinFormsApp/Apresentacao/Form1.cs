@@ -1,11 +1,12 @@
 using GestãoDeEquipamentos.WinFormsApp.Apresentacao;
+using GestãoDeEquipamentos.WinFormsApp.Dados;
 using GestãoDeEquipamentos.WinFormsApp.Negocio;
 namespace GestãoDeEquipamentos.WinFormsApp
 {
     public partial class Form1 : Form
     {
-        List<Equipamento> equipamentos = new List<Equipamento>();
-        List<Chamado> chamados = new List<Chamado>();
+       public RepositorioChamado repositorioChamado = new RepositorioChamado();
+       public RepositorioEquipamento repositorioEquipamento = new RepositorioEquipamento();
         public Form1()
         {
             InitializeComponent();
@@ -39,7 +40,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
             Equipamento equipamento = new Equipamento(nome, fabricante, precoAquisicao, dataFabricacao);
             equipamento.Id = GeradorIds.GerarIdEquipamento();
-            equipamentos.Add(equipamento);
+            repositorioEquipamento.equipamentos.Add(equipamento);
             MessageBox.Show($"Equipamento {equipamento.Nome} adicionado com sucesso!");
             LimparCamposEquipamento();
             AtualizarDataGridViewEquipamentos();
@@ -48,7 +49,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
         private void buttonSalvarChamado_Click(object sender, EventArgs e)
         {
             TipoChamadoEnum tipoChamadoEnum = (TipoChamadoEnum)Enum.Parse(typeof(TipoChamadoEnum), comboBoxTipoChamado.SelectedItem.ToString());
-            Equipamento equipamento = equipamentos.Find(e => e.Id == Convert.ToInt32(textBoxIdEquipamentoChamado.Text));
+            Equipamento equipamento = repositorioEquipamento.equipamentos.Find(e => e.Id == Convert.ToInt32(textBoxIdEquipamentoChamado.Text));
             if (equipamento is null)
                 return;
 
@@ -64,7 +65,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             };
 
             chamado.Id = GeradorIds.GerarIdChamado();
-            chamados.Add(chamado);
+            repositorioChamado.chamados.Add(chamado);
             MessageBox.Show($"Chamado aberto para: {chamado.Equipamento.Nome}");
             LimparCamposChamado();
             AtualizarDataGridViewChamados();
@@ -80,7 +81,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             }
             else
             {
-                chamados.RemoveAll(e => e.Id == Convert.ToInt32(textBoxId.Text));
+                repositorioChamado.chamados.RemoveAll(e => e.Id == Convert.ToInt32(textBoxId.Text));
             }
             MessageBox.Show($"Equipamento com ID {textBoxId.Text} removido com sucesso!");
             LimparCamposEquipamento();
@@ -96,7 +97,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             }
             else
             {
-                chamados.RemoveAll(e => e.Id == Convert.ToInt32(textBoxIdChamado.Text));
+                repositorioChamado.chamados.RemoveAll(e => e.Id == Convert.ToInt32(textBoxIdChamado.Text));
             }
             MessageBox.Show($"Chamado com ID {textBoxIdChamado.Text} removido com sucesso!");
             LimparCamposChamado();
@@ -113,7 +114,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             else
             {
                 int id = Convert.ToInt32(textBoxId.Text);
-                Equipamento equipamento = equipamentos.FirstOrDefault(e => e.Id == id);
+                Equipamento equipamento = repositorioEquipamento.equipamentos.FirstOrDefault(e => e.Id == id);
                 if (equipamento != null)
                 {
                     equipamento.Nome = textBoxNome.Text;
@@ -141,7 +142,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             else
             {
                 int id = Convert.ToInt32(textBoxIdChamado.Text);
-                Chamado chamado = chamados.FirstOrDefault(e => e.Id == id);
+                Chamado chamado = repositorioChamado.chamados.FirstOrDefault(e => e.Id == id);
                 if (chamado != null)
                 {
                     TipoChamadoEnum tipoChamadoEnum = (TipoChamadoEnum)Enum.Parse(typeof(TipoChamadoEnum), comboBoxTipoChamado.SelectedItem.ToString());
@@ -207,7 +208,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
         private void AtualizarDataGridViewEquipamentos()
         {
             dataGridView1.Rows.Clear();
-            foreach (var equipamento in equipamentos)
+            foreach (var equipamento in repositorioEquipamento.equipamentos)
             {
                 dataGridView1.Rows.Add(equipamento.Id, equipamento.Nome, equipamento.Fabricante, equipamento.PrecoAquisicao, equipamento.DataFabricacao, equipamento.ObterNumeroSerie());
             }
@@ -216,7 +217,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
         private void AtualizarDataGridViewChamados()
         {
             dataGridView2.Rows.Clear();
-            foreach (var chamado in chamados)
+            foreach (var chamado in repositorioChamado.chamados)
             {
                 var dataAtual = DateTime.Now.Subtract(chamado.DataAbertura.ToDateTime(TimeOnly.MinValue));
                 dataGridView2.Rows.Add(chamado.Id, chamado.TituloChamado, chamado.Equipamento.Id, chamado.DescricaoChamado, chamado.DataAbertura, dataAtual.TotalDays.ToString("F0"));
@@ -279,29 +280,29 @@ namespace GestãoDeEquipamentos.WinFormsApp
             Equipamento equipamento48 = new("AGM-164", "Lockheed Martin", 15000000, new DateOnly(2026, 9, 25)) { Id = GeradorIds.GerarIdEquipamento() };
             Equipamento equipamento49 = new("AGM-165", "Lockheed Martin", 15500000, new DateOnly(2026, 10, 30)) { Id = GeradorIds.GerarIdEquipamento() };
             Equipamento equipamento50 = new("AGM-166", "Lockheed Martin", 16000000, new DateOnly(2026, 11, 5)) { Id = GeradorIds.GerarIdEquipamento() };
-            equipamentos.Add(equipamento1);
-            equipamentos.Add(equipamento2);
-            equipamentos.Add(equipamento3);
-            equipamentos.Add(equipamento4);
-            equipamentos.Add(equipamento5);
-            equipamentos.Add(equipamento6);
-            equipamentos.Add(equipamento7);
-            equipamentos.Add(equipamento8);
-            equipamentos.Add(equipamento9);
-            equipamentos.Add(equipamento10);
-            equipamentos.Add(equipamento11);
-            equipamentos.Add(equipamento12);
-            equipamentos.Add(equipamento13);
-            equipamentos.Add(equipamento14);
-            equipamentos.Add(equipamento15);
-            equipamentos.Add(equipamento16);
-            equipamentos.Add(equipamento17);
-            equipamentos.Add(equipamento18);
-            equipamentos.Add(equipamento19);
-            equipamentos.Add(equipamento20);
-            equipamentos.Add(equipamento48);
-            equipamentos.Add(equipamento49);
-            equipamentos.Add(equipamento50);
+            repositorioEquipamento.equipamentos.Add(equipamento1);
+            repositorioEquipamento.equipamentos.Add(equipamento2);
+            repositorioEquipamento.equipamentos.Add(equipamento3);
+            repositorioEquipamento.equipamentos.Add(equipamento4);
+            repositorioEquipamento.equipamentos.Add(equipamento5);
+            repositorioEquipamento.equipamentos.Add(equipamento6);
+            repositorioEquipamento.equipamentos.Add(equipamento7);
+            repositorioEquipamento.equipamentos.Add(equipamento8);
+            repositorioEquipamento.equipamentos.Add(equipamento9);
+            repositorioEquipamento.equipamentos.Add(equipamento10);
+            repositorioEquipamento.equipamentos.Add(equipamento11);
+            repositorioEquipamento.equipamentos.Add(equipamento12);
+            repositorioEquipamento.equipamentos.Add(equipamento13);
+            repositorioEquipamento.equipamentos.Add(equipamento14);
+            repositorioEquipamento.equipamentos.Add(equipamento15);
+            repositorioEquipamento.equipamentos.Add(equipamento16);
+            repositorioEquipamento.equipamentos.Add(equipamento17);
+            repositorioEquipamento.equipamentos.Add(equipamento18);
+            repositorioEquipamento.equipamentos.Add(equipamento19);
+            repositorioEquipamento.equipamentos.Add(equipamento20);
+            repositorioEquipamento.equipamentos.Add(equipamento48);
+            repositorioEquipamento.equipamentos.Add(equipamento49);
+            repositorioEquipamento.equipamentos.Add(equipamento50);
         }
         private void textBoxId_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -315,12 +316,12 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            PopularControlesEquipamento(equipamentos[e.RowIndex]);
+            PopularControlesEquipamento(repositorioEquipamento.equipamentos[e.RowIndex]);
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            PopularControlesChamado(chamados[e.RowIndex]);
+            PopularControlesChamado(repositorioChamado.chamados[e.RowIndex]);
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -34,7 +34,6 @@
             label2 = new Label();
             textBoxPreco = new TextBox();
             label6 = new Label();
-            textBoxFabricante = new TextBox();
             textBoxNome = new TextBox();
             textBoxId = new TextBox();
             label4 = new Label();
@@ -67,6 +66,7 @@
             label15 = new Label();
             button1 = new Button();
             label13 = new Label();
+            textBoxFabricante = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -122,14 +122,6 @@
             label6.Size = new Size(116, 38);
             label6.TabIndex = 8;
             label6.Text = "Preço equipamento:";
-            // 
-            // textBoxFabricante
-            // 
-            textBoxFabricante.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxFabricante.Location = new Point(127, 97);
-            textBoxFabricante.Name = "textBoxFabricante";
-            textBoxFabricante.Size = new Size(118, 29);
-            textBoxFabricante.TabIndex = 7;
             // 
             // textBoxNome
             // 
@@ -501,6 +493,14 @@
             label13.TabIndex = 14;
             label13.Text = "Controle de fabricantes";
             // 
+            // textBoxFabricante
+            // 
+            textBoxFabricante.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxFabricante.Location = new Point(127, 97);
+            textBoxFabricante.Name = "textBoxFabricante";
+            textBoxFabricante.Size = new Size(118, 29);
+            textBoxFabricante.TabIndex = 7;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -539,7 +539,6 @@
         private Label label2;
         private TextBox textBoxPreco;
         private Label label6;
-        private TextBox textBoxFabricante;
         private TextBox textBoxNome;
         private TextBox textBoxId;
         private Label label4;
@@ -572,5 +571,6 @@
         private Label label15;
         private Button button1;
         private Label label13;
+        private TextBox textBoxFabricante;
     }
 }

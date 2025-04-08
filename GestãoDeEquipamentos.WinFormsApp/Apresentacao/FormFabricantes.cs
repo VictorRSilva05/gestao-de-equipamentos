@@ -1,4 +1,5 @@
 ﻿
+using GestãoDeEquipamentos.WinFormsApp.Dados;
 using GestãoDeEquipamentos.WinFormsApp.Negocio;
 using System.Windows.Forms;
 
@@ -6,7 +7,7 @@ namespace GestãoDeEquipamentos.WinFormsApp.Apresentacao;
 
 public partial class FormFabricantes : Form
 {
-    List<Fabricante> fabricantes = new List<Fabricante>();
+    public RepositorioFabricantes repositorioFabricantes = new RepositorioFabricantes();
 
     public FormFabricantes()
     {
@@ -51,7 +52,7 @@ public partial class FormFabricantes : Form
 
         Fabricante fabricante = new Fabricante(nome, telefone, email);
         fabricante.Id = GeradorIds.GerarIdFabricantes();
-        fabricantes.Add(fabricante);
+        repositorioFabricantes.fabricantes.Add(fabricante);
         MessageBox.Show($"Fabricante {fabricante.Nome} adicionado com sucesso!");
         LimparCampos();
         AtualizarDataGridView();
@@ -75,7 +76,7 @@ public partial class FormFabricantes : Form
         }
         else
         {
-            fabricantes.RemoveAll(e => e.Id == Convert.ToInt32(textBoxId.Text));
+            repositorioFabricantes.fabricantes.RemoveAll(e => e.Id == Convert.ToInt32(textBoxId.Text));
         }
         MessageBox.Show($"Fabricante com ID {textBoxId.Text} removido com sucesso!");
         LimparCampos();
@@ -92,7 +93,7 @@ public partial class FormFabricantes : Form
         else
         {
             int id = Convert.ToInt32(textBoxId.Text);
-            Fabricante fabricante = fabricantes.FirstOrDefault(e => e.Id == id);
+            Fabricante fabricante = repositorioFabricantes.fabricantes.FirstOrDefault(e => e.Id == id);
             if (fabricante != null)
             {
                 fabricante.Nome = textBoxNome.Text;
@@ -121,7 +122,7 @@ public partial class FormFabricantes : Form
     private void AtualizarDataGridView()
     {
         dataGridView1.Rows.Clear();
-        foreach (var fabricante in fabricantes)
+        foreach (var fabricante in repositorioFabricantes.fabricantes)
         {
             dataGridView1.Rows.Add(fabricante.Id, fabricante.Nome, fabricante.Telefone, fabricante.Email, fabricante.QtdEquipamentos.ToString()); ;
         }
@@ -138,7 +139,7 @@ public partial class FormFabricantes : Form
 
     private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
     {
-        PopularControles(fabricantes[e.RowIndex]);
+        PopularControles(repositorioFabricantes.fabricantes[e.RowIndex]);
     }
 
     private void CargaInicial()
@@ -146,8 +147,8 @@ public partial class FormFabricantes : Form
         Fabricante fabricante1 = new("Raytheon", "69696", "raytheondefence@raytheon.com") { Id = GeradorIds.GerarIdFabricantes() };
         Fabricante fabricante2 = new("Lockheed Martin", "420420", "lockheedmartin@lockheedmartin.com") { Id = GeradorIds.GerarIdFabricantes() };
         Fabricante fabricante3 = new("Boeing", "24242", "boeingindustries@boeing.com") { Id = GeradorIds.GerarIdFabricantes() };
-        fabricantes.Add(fabricante1);
-        fabricantes.Add(fabricante2);
-        fabricantes.Add(fabricante3);
+        repositorioFabricantes.fabricantes.Add(fabricante1);
+        repositorioFabricantes.fabricantes.Add(fabricante2);
+        repositorioFabricantes.fabricantes.Add(fabricante3);
     }
 }
