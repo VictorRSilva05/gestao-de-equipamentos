@@ -13,9 +13,11 @@ namespace GestãoDeEquipamentos.WinFormsApp
             InitializeComponent();
             InicializarDataGridViewEquipamentos();
             InicializarDataGridViewChamados();
-            InicializarComboBoxChamado();
             CargaInicialEquipamento();
             CargaInicialFabricantes();
+            AtualizarQuantidadeEquipamentosFabricantes();
+            InicializarComboBoxChamado();
+            InicializarComboBoxFabricantes();
             AtualizarDataGridViewEquipamentos();
             AtualizarDataGridViewChamados();
         }
@@ -27,7 +29,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
         private void InicializarComboBoxFabricantes()
         {
-            comboBoxFabricante.Items.AddRange(repositorioFabricantes.fabricantes);
+            comboBoxFabricante.Items.AddRange(repositorioFabricantes.fabricantes.Select(f => f.Nome).ToArray());
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
@@ -344,6 +346,14 @@ namespace GestãoDeEquipamentos.WinFormsApp
             repositorioFabricantes.fabricantes.Add(fabricante1);
             repositorioFabricantes.fabricantes.Add(fabricante2);
             repositorioFabricantes.fabricantes.Add(fabricante3);
+        }
+
+        private void AtualizarQuantidadeEquipamentosFabricantes()
+        {
+            foreach (var fabricante in repositorioFabricantes.fabricantes)
+            {
+                fabricante.AtualizarQuantidadeEquipamentos(repositorioEquipamento.equipamentos);
+            }
         }
     }
 }

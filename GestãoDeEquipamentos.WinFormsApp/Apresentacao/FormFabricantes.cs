@@ -8,12 +8,11 @@ namespace GestãoDeEquipamentos.WinFormsApp.Apresentacao;
 public partial class FormFabricantes : Form
 {
     RepositorioFabricantes repositorioFabricantes1 = new RepositorioFabricantes();
-
     public FormFabricantes(RepositorioFabricantes repositorioFabricantes)
     {
         InitializeComponent();
         InicializarDataGridView();
-        repositorioFabricantes1 = repositorioFabricantes;;
+        repositorioFabricantes1 = repositorioFabricantes;
         AtualizarDataGridView();
     }
 

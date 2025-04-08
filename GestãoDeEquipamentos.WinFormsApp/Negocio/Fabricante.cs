@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GestãoDeEquipamentos.WinFormsApp.Dados;
 
 namespace GestãoDeEquipamentos.WinFormsApp.Negocio;
 
@@ -21,8 +17,13 @@ public class Fabricante
         Email = email;
     }
 
-    public override string ToString()
+    public Fabricante()
     {
-        return Nome;
+    }
+
+    public void AtualizarQuantidadeEquipamentos(List<Equipamento> equipamentos)
+    {
+        QtdEquipamentos = equipamentos.Count(e => e.Fabricante == Nome);
     }
 }
+
