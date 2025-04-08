@@ -6,7 +6,6 @@ namespace GestãoDeEquipamentos.WinFormsApp
     {
         List<Equipamento> equipamentos = new List<Equipamento>();
         List<Chamado> chamados = new List<Chamado>();
-        List<Fabricante> fabricantes = new List<Fabricante>();
         public Form1()
         {
             InitializeComponent();

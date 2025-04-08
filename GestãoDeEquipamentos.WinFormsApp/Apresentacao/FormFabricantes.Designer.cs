@@ -196,6 +196,7 @@
             buttonSalvar.TabIndex = 13;
             buttonSalvar.Text = "Salvar";
             buttonSalvar.UseVisualStyleBackColor = false;
+            buttonSalvar.Click += buttonSalvar_Click;
             // 
             // buttonAtualizar
             // 
