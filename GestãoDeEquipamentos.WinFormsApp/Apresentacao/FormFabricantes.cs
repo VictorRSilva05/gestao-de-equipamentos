@@ -1,5 +1,6 @@
 ﻿
 using GestãoDeEquipamentos.WinFormsApp.Negocio;
+using System.Windows.Forms;
 
 namespace GestãoDeEquipamentos.WinFormsApp.Apresentacao;
 
@@ -10,6 +11,9 @@ public partial class FormFabricantes : Form
     public FormFabricantes()
     {
         InitializeComponent();
+        CargaInicial();
+        InicializarDataGridView();
+        AtualizarDataGridView();
     }
 
     private static void PermitirSomenteNumeros(KeyPressEventArgs e)
@@ -50,6 +54,7 @@ public partial class FormFabricantes : Form
         fabricantes.Add(fabricante);
         MessageBox.Show($"Fabricante {fabricante.Nome} adicionado com sucesso!");
         LimparCampos();
+        AtualizarDataGridView();
     }
 
     private void LimparCampos()
@@ -74,6 +79,7 @@ public partial class FormFabricantes : Form
         }
         MessageBox.Show($"Fabricante com ID {textBoxId.Text} removido com sucesso!");
         LimparCampos();
+        AtualizarDataGridView();
     }
 
     private void buttonAtualizar_Click(object sender, EventArgs e)
@@ -94,11 +100,54 @@ public partial class FormFabricantes : Form
                 fabricante.Telefone = maskedTextBoxTelefone.Text;
                 MessageBox.Show($"Fabricante {fabricante.Nome} atualizado com sucesso!");
                 LimparCampos();
+                AtualizarDataGridView();
             }
             else
             {
                 MessageBox.Show("Fabricante não encontrado.");
             }
         }
+    }
+
+    private void InicializarDataGridView()
+    {
+        dataGridView1.Columns.Add("Id", "ID");
+        dataGridView1.Columns.Add("Nome", "Nome");
+        dataGridView1.Columns.Add("Telefone", "Telefone");
+        dataGridView1.Columns.Add("Email", "Email");
+        dataGridView1.Columns.Add("Qtd Equipamentos", "Qtd Equipamentos");
+    }
+
+    private void AtualizarDataGridView()
+    {
+        dataGridView1.Rows.Clear();
+        foreach (var fabricante in fabricantes)
+        {
+            dataGridView1.Rows.Add(fabricante.Id, fabricante.Nome, fabricante.Telefone, fabricante.Email, fabricante.QtdEquipamentos.ToString()); ;
+        }
+    }
+
+    private void PopularControles(Fabricante fabricante)
+    {
+        textBoxId.Text = fabricante.Id.ToString();
+        textBoxNome.Text = fabricante.Nome.ToString();
+        textBoxEmail.Text = fabricante.Email.ToString();
+        maskedTextBoxTelefone.Text = fabricante.Telefone.ToString();
+        textBoxQtd.Text = fabricante.QtdEquipamentos.ToString();
+    }
+
+    private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+    {
+        PopularControles(fabricantes[e.RowIndex]);
+    }
+
+    private void CargaInicial()
+    {
+        Fabricante fabricante1 = new("Raytheon", "69696", "raytheondefence@raytheon.com") { Id = GeradorIds.GerarIdFabricantes() };
+        Fabricante fabricante2 = new("Lockheed Martin", "420420", "lockheedmartin@lockheedmartin.com") { Id = GeradorIds.GerarIdFabricantes() };
+        Fabricante fabricante3 = new("Boeing", "24242", "boeingindustries@boeing.com") { Id = GeradorIds.GerarIdFabricantes() };
+        fabricantes.Add(fabricante1);
+        fabricantes.Add(fabricante2);
+        fabricantes.Add(fabricante3);
     }
 }
