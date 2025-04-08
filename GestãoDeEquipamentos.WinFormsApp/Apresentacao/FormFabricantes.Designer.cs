@@ -219,6 +219,7 @@
             buttonDeletar.TabIndex = 14;
             buttonDeletar.Text = "Deletar";
             buttonDeletar.UseVisualStyleBackColor = false;
+            buttonDeletar.Click += buttonDeletar_Click;
             // 
             // label2
             // 

@@ -60,4 +60,19 @@ public partial class FormFabricantes : Form
         maskedTextBoxTelefone.Clear();
         textBoxEmail.Clear();
     }
+
+    private void buttonDeletar_Click(object sender, EventArgs e)
+    {
+        if (string.IsNullOrEmpty(textBoxId.Text))
+        {
+            MessageBox.Show("Por favor, insira um id válido.");
+            return;
+        }
+        else
+        {
+            fabricantes.RemoveAll(e => e.Id == Convert.ToInt32(textBoxId.Text));
+        }
+        MessageBox.Show($"Fabricante com ID {textBoxId.Text} removido com sucesso!");
+        LimparCampos();
+    }
 }
