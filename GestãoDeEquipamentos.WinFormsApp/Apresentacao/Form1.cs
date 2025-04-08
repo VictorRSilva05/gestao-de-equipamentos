@@ -52,6 +52,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             repositorioEquipamento.equipamentos.Add(equipamento);
             MessageBox.Show($"Equipamento {equipamento.Nome} adicionado com sucesso!");
             LimparCamposEquipamento();
+            AtualizarQuantidadeEquipamentosFabricantes();
             AtualizarDataGridViewEquipamentos();
         }
 
@@ -90,10 +91,11 @@ namespace GestãoDeEquipamentos.WinFormsApp
             }
             else
             {
-                repositorioChamado.chamados.RemoveAll(e => e.Id == Convert.ToInt32(textBoxId.Text));
+                repositorioEquipamento.equipamentos.RemoveAll(e => e.Id == Convert.ToInt32(textBoxId.Text));
             }
             MessageBox.Show($"Equipamento com ID {textBoxId.Text} removido com sucesso!");
             LimparCamposEquipamento();
+            AtualizarQuantidadeEquipamentosFabricantes();
             AtualizarDataGridViewEquipamentos();
         }
 
@@ -132,6 +134,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
                     equipamento.DataFabricacao = DateOnly.FromDateTime(dateTimePickerDataFabricacao.Value);
                     MessageBox.Show($"Equipamento {equipamento.Nome} atualizado com sucesso!");
                     LimparCamposEquipamento();
+                    AtualizarQuantidadeEquipamentosFabricantes();
                     AtualizarDataGridViewEquipamentos();
                 }
                 else
@@ -295,6 +298,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             repositorioEquipamento.equipamentos.Add(equipamento4);
             repositorioEquipamento.equipamentos.Add(equipamento5);
             repositorioEquipamento.equipamentos.Add(equipamento6);
+            /*
             repositorioEquipamento.equipamentos.Add(equipamento7);
             repositorioEquipamento.equipamentos.Add(equipamento8);
             repositorioEquipamento.equipamentos.Add(equipamento9);
@@ -312,6 +316,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             repositorioEquipamento.equipamentos.Add(equipamento48);
             repositorioEquipamento.equipamentos.Add(equipamento49);
             repositorioEquipamento.equipamentos.Add(equipamento50);
+            */
         }
         private void textBoxId_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -335,7 +340,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new FormFabricantes(repositorioFabricantes).ShowDialog();
+            new FormFabricantes(repositorioFabricantes, repositorioEquipamento).ShowDialog();
         }
 
         private void CargaInicialFabricantes()
