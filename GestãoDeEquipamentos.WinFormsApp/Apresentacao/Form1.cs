@@ -359,12 +359,6 @@ namespace GestãoDeEquipamentos.WinFormsApp
                 fabricante.AtualizarQuantidadeEquipamentos(repositorioEquipamento.equipamentos);
             }
         }
-
-        private void comboBoxFabricante_SelectedIndexChanged(object sender, EventArgs e)
-        {
-          
-        }
-
         private void comboBoxFabricante_MouseClick(object sender, MouseEventArgs e)
         {
             InicializarComboBoxFabricantes();

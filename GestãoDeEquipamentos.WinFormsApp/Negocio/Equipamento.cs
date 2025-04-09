@@ -30,5 +30,21 @@ namespace GestãoDeEquipamentos.WinFormsApp.Negocio
 
             return $"{tresPrimeirosCaracteres}-{Id}";
         }
+
+        public string Validar()
+        {
+            string erros = default(string);
+
+            if (string.IsNullOrEmpty(Nome))
+                erros += "O campo nome é obrigatório.\n";
+
+            if (string.IsNullOrEmpty(Fabricante))
+                erros += "O campo fabricante é obrigatório.\n";
+
+            if (PrecoAquisicao == 0)
+                erros += "O campo preço é obrigatório.";
+
+            return erros;
+        }
     }
 }

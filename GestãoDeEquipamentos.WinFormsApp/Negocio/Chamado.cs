@@ -24,5 +24,19 @@ namespace GestãoDeEquipamentos.WinFormsApp.Negocio
             Equipamento = equipamento;
             DataAbertura = dataAbertura;
         }
+
+
+        public string Validar()
+        {
+            string erros = default(string);
+
+            if (string.IsNullOrEmpty(DescricaoChamado))
+                erros += "É necessário informar uma descrição ao chamado.\n";
+
+            if (Equipamento is null)
+                erros += "É necessário informar um equipamento.\n";
+
+            return erros;
+        }
     }
 }
