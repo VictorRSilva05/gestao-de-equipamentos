@@ -33,7 +33,7 @@ namespace GestãoDeEquipamentos.WinFormsApp.Negocio
 
         public string Validar()
         {
-            string erros = default(string);
+            string erros = "";
 
             if (string.IsNullOrEmpty(Nome))
                 erros += "O campo nome é obrigatório.\n";

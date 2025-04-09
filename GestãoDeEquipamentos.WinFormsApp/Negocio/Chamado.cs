@@ -25,10 +25,9 @@ namespace GestãoDeEquipamentos.WinFormsApp.Negocio
             DataAbertura = dataAbertura;
         }
 
-
         public string Validar()
         {
-            string erros = default(string);
+            string erros = "";
 
             if (string.IsNullOrEmpty(DescricaoChamado))
                 erros += "É necessário informar uma descrição ao chamado.\n";

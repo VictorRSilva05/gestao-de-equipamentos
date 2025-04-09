@@ -43,13 +43,17 @@ public partial class FormFabricantes : Form
         string telefone = textBoxQtd.Text;
         string email = textBoxEmail.Text;
 
-        if (string.IsNullOrEmpty(textBoxNome.Text) || (string.IsNullOrEmpty(maskedTextBoxTelefone.Text) || (string.IsNullOrEmpty(textBoxEmail.Text))))
+        Fabricante fabricante = new Fabricante(nome, telefone, email);
+
+        string erros = fabricante.Validar();
+
+        if (erros.Length > 0)
         {
-            MessageBox.Show("Preencha todos os campos");
+            MessageBox.Show(erros);
             return;
         }
 
-        Fabricante fabricante = new Fabricante(nome, telefone, email);
+       
         fabricante.Id = GeradorIds.GerarIdFabricantes();
         repositorioFabricantes1.fabricantes.Add(fabricante);
         MessageBox.Show($"Fabricante {fabricante.Nome} adicionado com sucesso!");

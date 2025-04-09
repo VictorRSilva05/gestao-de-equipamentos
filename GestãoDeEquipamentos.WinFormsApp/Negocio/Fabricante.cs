@@ -27,9 +27,9 @@ public class Fabricante
         QtdEquipamentos = equipamentos.Count(e => e.Fabricante == Nome);
     }
 
-    public string ValidarEntrada()
+    public string Validar()
     {
-        string erros = default(string);
+        string erros = "";
 
         if (string.IsNullOrEmpty(Nome))
             erros += "O campo nome é obrigatório.\n";
@@ -42,12 +42,6 @@ public class Fabricante
 
         if (!MailAddress.TryCreate(Email, out _))
             erros += "O campo 'Email' deve estar em um formato válido.\n";
-
-        if (string.IsNullOrWhiteSpace(Telefone))
-            erros += "O campo 'Telefone' é obrigatório.\n";
-
-        if (Telefone.Length < 12)
-            erros += "O campo 'Telefone' deve seguir o formato 00 0000-0000.";
 
         return erros;
     }

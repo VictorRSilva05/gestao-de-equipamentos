@@ -1,4 +1,5 @@
-﻿namespace GestãoDeEquipamentos.WinFormsApp
+﻿
+namespace GestãoDeEquipamentos.WinFormsApp
 {
     partial class Form1
     {
@@ -534,6 +535,11 @@
             tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void comboBoxFabricante_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
