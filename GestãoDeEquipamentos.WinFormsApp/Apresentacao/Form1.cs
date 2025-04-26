@@ -1,4 +1,5 @@
 using GestãoDeEquipamentos.WinFormsApp.Apresentacao;
+using GestãoDeEquipamentos.WinFormsApp.Compartilhado;
 using GestãoDeEquipamentos.WinFormsApp.Dados;
 using GestãoDeEquipamentos.WinFormsApp.Negocio;
 namespace GestãoDeEquipamentos.WinFormsApp
@@ -7,7 +8,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
     {
         public RepositorioChamado repositorioChamado = new RepositorioChamado();
         public RepositorioEquipamento repositorioEquipamento = new RepositorioEquipamento();
-        public RepositorioFabricantes repositorioFabricantes = new RepositorioFabricantes();
+        public RepositorioFabricante repositorioFabricante = new RepositorioFabricante();
         public Form1()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
         private void InicializarComboBoxFabricantes()
         {
             comboBoxFabricante.Items.Clear();
-            comboBoxFabricante.Items.AddRange(repositorioFabricantes.fabricantes.Select(f => f.Nome).ToArray());
+            comboBoxFabricante.Items.AddRange(repositorioFabricante.fabricantes.Select(f => f.Nome).ToArray());
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
@@ -66,7 +67,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
             DateOnly aberturaChamado = DateOnly.FromDateTime(dateTimePickerChamado.Value);
             string descricaoChamado = richTextBoxChamado.Text;
-
+            
             Chamado chamado = new Chamado
             {
                 TituloChamado = tipoChamadoEnum,
@@ -223,7 +224,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
             dataGridView1.Rows.Clear();
             foreach (var equipamento in repositorioEquipamento.equipamentos)
             {
-                dataGridView1.Rows.Add(equipamento.Id, equipamento.Nome, equipamento.Fabricante, equipamento.PrecoAquisicao, equipamento.DataFabricacao, equipamento.ObterNumeroSerie());
+                dataGridView1.Rows.Add(equipamento.Id, equipamento.Nome, equipamento.Fabricante, equipamento.PrecoAquisicao, equipamento.DataFabricacao, equipamento.NumeroSerie);
             }
         }
 
@@ -339,7 +340,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new FormFabricantes(repositorioFabricantes, repositorioEquipamento).ShowDialog();
+            new FormFabricantes(repositorioFabricante, repositorioEquipamento).ShowDialog();
         }
 
         private void CargaInicialFabricantes()
@@ -347,14 +348,14 @@ namespace GestãoDeEquipamentos.WinFormsApp
             Fabricante fabricante1 = new("Raytheon", "69696", "raytheondefence@raytheon.com") { Id = GeradorIds.GerarIdFabricantes() };
             Fabricante fabricante2 = new("Lockheed Martin", "420420", "lockheedmartin@lockheedmartin.com") { Id = GeradorIds.GerarIdFabricantes() };
             Fabricante fabricante3 = new("Boeing", "24242", "boeingindustries@boeing.com") { Id = GeradorIds.GerarIdFabricantes() };
-            repositorioFabricantes.fabricantes.Add(fabricante1);
-            repositorioFabricantes.fabricantes.Add(fabricante2);
-            repositorioFabricantes.fabricantes.Add(fabricante3);
+            repositorioFabricante.fabricantes.Add(fabricante1);
+            repositorioFabricante.fabricantes.Add(fabricante2);
+            repositorioFabricante.fabricantes.Add(fabricante3);
         }
 
         private void AtualizarQuantidadeEquipamentosFabricantes()
         {
-            foreach (var fabricante in repositorioFabricantes.fabricantes)
+            foreach (var fabricante in repositorioFabricante.fabricantes)
             {
                 fabricante.AtualizarQuantidadeEquipamentos(repositorioEquipamento.equipamentos);
             }

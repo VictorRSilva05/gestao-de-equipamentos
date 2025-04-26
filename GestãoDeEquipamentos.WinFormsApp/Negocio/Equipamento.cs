@@ -8,11 +8,20 @@ namespace GestãoDeEquipamentos.WinFormsApp.Negocio
 {
     public class Equipamento
     {
-        public int Id;
-        public string Nome;
-        public string Fabricante;
-        public decimal PrecoAquisicao;
-        public DateOnly DataFabricacao;
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public string Fabricante { get; set; }
+        public decimal PrecoAquisicao { get; set; }
+        public DateOnly DataFabricacao { get; set; }
+        public string NumeroSerie
+        {
+            get
+            {
+                string tresPrimeirosCaracteres = Nome.Substring(0, 3).ToUpper();
+
+                return $"{tresPrimeirosCaracteres}-{Id}";
+            }
+        }
         public Equipamento()
         {
         }
@@ -22,13 +31,6 @@ namespace GestãoDeEquipamentos.WinFormsApp.Negocio
             Fabricante = fabricante;
             PrecoAquisicao = precoAquisicao;
             DataFabricacao = dataFabricacao;
-        }
-
-        public string ObterNumeroSerie()
-        {
-            string tresPrimeirosCaracteres = Nome.Substring(0, 3).ToUpper();
-
-            return $"{tresPrimeirosCaracteres}-{Id}";
         }
 
         public string Validar()

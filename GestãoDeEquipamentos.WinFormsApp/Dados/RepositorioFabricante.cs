@@ -1,13 +1,14 @@
 ﻿
 
+using GestãoDeEquipamentos.WinFormsApp.Compartilhado;
 using GestãoDeEquipamentos.WinFormsApp.Negocio;
 
 namespace GestãoDeEquipamentos.WinFormsApp.Dados
 {
-    public class RepositorioFabricantes
+    public class RepositorioFabricante : RepositorioBase
     {
         public List<Fabricante> fabricantes = new List<Fabricante>();
 
-        public RepositorioFabricantes() { }
+        public RepositorioFabricante() { }
     }
 }

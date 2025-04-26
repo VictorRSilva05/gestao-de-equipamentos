@@ -1,4 +1,5 @@
 ﻿
+using GestãoDeEquipamentos.WinFormsApp.Compartilhado;
 using GestãoDeEquipamentos.WinFormsApp.Dados;
 using GestãoDeEquipamentos.WinFormsApp.Negocio;
 using System.Windows.Forms;
@@ -7,8 +8,8 @@ namespace GestãoDeEquipamentos.WinFormsApp.Apresentacao;
 
 public partial class FormFabricantes : Form
 {
-    RepositorioFabricantes repositorioFabricantes1;
-    public FormFabricantes(RepositorioFabricantes repositorioFabricantes, RepositorioEquipamento repositorioEquipamento)
+    RepositorioFabricante repositorioFabricantes1;
+    public FormFabricantes(RepositorioFabricante repositorioFabricantes, RepositorioEquipamento repositorioEquipamento)
     {
         InitializeComponent();
         InicializarDataGridView();

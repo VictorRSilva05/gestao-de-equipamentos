@@ -8,11 +8,11 @@ namespace GestãoDeEquipamentos.WinFormsApp.Negocio
 {
     public class Chamado
     {
-        public int Id;
-        public TipoChamadoEnum TituloChamado;
-        public string DescricaoChamado;
-        public Equipamento Equipamento;
-        public DateOnly DataAbertura;
+        public int Id { get; set; }
+        public TipoChamadoEnum TituloChamado { get; set; }
+        public string DescricaoChamado { get; set; }
+        public Equipamento Equipamento { get; set; }
+        public DateOnly DataAbertura { get; set; }
 
         public Chamado()
         {
