@@ -51,7 +51,12 @@ namespace GestãoDeEquipamentos.WinFormsApp.Negocio
 
         public override void AtualizarRegistro(EntidadeBase registroEditado)
         {
-            throw new NotImplementedException();
+            Equipamento equipamento = (Equipamento)registroEditado;
+
+            Nome = equipamento.Nome;
+            Fabricante = equipamento.Fabricante;
+            PrecoAquisicao = equipamento.PrecoAquisicao;
+            DataFabricacao = equipamento.DataFabricacao;
         }
     }
 }
