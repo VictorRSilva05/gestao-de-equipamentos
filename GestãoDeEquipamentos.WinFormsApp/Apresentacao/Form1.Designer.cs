@@ -537,9 +537,16 @@ namespace GestãoDeEquipamentos.WinFormsApp
             PerformLayout();
         }
 
-        private void comboBoxFabricante_SelectedIndexChanged(object sender, EventArgs e)
+         private void comboBoxFabricante_SelectedIndexChanged(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            // Get the selected manufacturer name
+            string selectedFabricante = comboBoxFabricante.SelectedItem?.ToString();
+
+            if (!string.IsNullOrEmpty(selectedFabricante))
+            {
+                // Example: Update related UI elements or data
+                AtualizarEquipamentosDoFabricante(selectedFabricante);
+            }
         }
 
         #endregion

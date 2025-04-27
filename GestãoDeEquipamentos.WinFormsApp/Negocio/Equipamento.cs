@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestãoDeEquipamentos.WinFormsApp.Compartilhado;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace GestãoDeEquipamentos.WinFormsApp.Negocio
 {
-    public class Equipamento
+    public class Equipamento : EntidadeBase
     {
-        public int Id { get; set; }
         public string Nome { get; set; }
         public string Fabricante { get; set; }
         public decimal PrecoAquisicao { get; set; }
@@ -47,6 +47,11 @@ namespace GestãoDeEquipamentos.WinFormsApp.Negocio
                 erros += "O campo preço é obrigatório.";
 
             return erros;
+        }
+
+        public override void AtualizarRegistro(EntidadeBase registroEditado)
+        {
+            throw new NotImplementedException();
         }
     }
 }

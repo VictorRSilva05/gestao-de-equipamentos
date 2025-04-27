@@ -1,13 +1,11 @@
 ﻿
 
+using GestãoDeEquipamentos.WinFormsApp.Compartilhado;
 using GestãoDeEquipamentos.WinFormsApp.Negocio;
 
 namespace GestãoDeEquipamentos.WinFormsApp.Dados
 {
-    public class RepositorioEquipamento
+    public class RepositorioEquipamento : RepositorioBase
     {
-        public List<Equipamento> equipamentos = new List<Equipamento>();
-
-        public RepositorioEquipamento() { }
     }
 }

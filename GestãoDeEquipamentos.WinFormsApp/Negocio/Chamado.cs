@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestãoDeEquipamentos.WinFormsApp.Compartilhado;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace GestãoDeEquipamentos.WinFormsApp.Negocio
 {
-    public class Chamado
+    public class Chamado : EntidadeBase
     {
-        public int Id { get; set; }
         public TipoChamadoEnum TituloChamado { get; set; }
         public string DescricaoChamado { get; set; }
         public Equipamento Equipamento { get; set; }
@@ -36,6 +36,16 @@ namespace GestãoDeEquipamentos.WinFormsApp.Negocio
                 erros += "É necessário informar um equipamento.\n";
 
             return erros;
+        }
+
+        public override void AtualizarRegistro(EntidadeBase registroEditado)
+        {
+            Chamado chamadoEditado =  (Chamado)registroEditado;
+
+            TituloChamado = chamadoEditado.TituloChamado;
+            DescricaoChamado = chamadoEditado.DescricaoChamado;
+            Equipamento = chamadoEditado.Equipamento;
+            DataAbertura = chamadoEditado.DataAbertura;
         }
     }
 }

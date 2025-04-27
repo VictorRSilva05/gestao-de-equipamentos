@@ -161,5 +161,5 @@ public partial class FormFabricantes : Form
         {
             MessageBox.Show("Erro: O registro selecionado não é um Fabricante.");
         }
-    }
+    } 
 }

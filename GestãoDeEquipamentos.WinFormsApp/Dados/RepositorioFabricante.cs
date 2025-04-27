@@ -7,6 +7,5 @@ namespace GestãoDeEquipamentos.WinFormsApp.Dados
 {
     public class RepositorioFabricante : RepositorioBase
     {
-        public RepositorioFabricante() { }
     }
 }
