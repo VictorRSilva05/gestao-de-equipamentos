@@ -31,7 +31,15 @@ namespace GestãoDeEquipamentos.WinFormsApp
         private void InicializarComboBoxFabricantes()
         {
             comboBoxFabricante.Items.Clear();
-            comboBoxFabricante.Items.AddRange(repositorioFabricante.fabricantes.Select(f => f.Nome).ToArray());
+
+            List<Fabricante> fabricantes = new List<Fabricante>();
+
+            foreach (var fabricante in repositorioFabricante.registros)
+            {
+                fabricantes.Add(fabricante as Fabricante);
+            }
+
+            comboBoxFabricante.Items.AddRange(fabricantes.Select(f => f.Nome).ToArray());
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
@@ -348,14 +356,21 @@ namespace GestãoDeEquipamentos.WinFormsApp
             Fabricante fabricante1 = new("Raytheon", "69696", "raytheondefence@raytheon.com") { Id = GeradorIds.GerarIdFabricantes() };
             Fabricante fabricante2 = new("Lockheed Martin", "420420", "lockheedmartin@lockheedmartin.com") { Id = GeradorIds.GerarIdFabricantes() };
             Fabricante fabricante3 = new("Boeing", "24242", "boeingindustries@boeing.com") { Id = GeradorIds.GerarIdFabricantes() };
-            repositorioFabricante.fabricantes.Add(fabricante1);
-            repositorioFabricante.fabricantes.Add(fabricante2);
-            repositorioFabricante.fabricantes.Add(fabricante3);
+            repositorioFabricante.Inserir(fabricante1);
+            repositorioFabricante.Inserir(fabricante2);
+            repositorioFabricante.Inserir(fabricante3);
         }
 
         private void AtualizarQuantidadeEquipamentosFabricantes()
         {
-            foreach (var fabricante in repositorioFabricante.fabricantes)
+            List<Fabricante> fabricantes = new List<Fabricante>();
+
+            foreach (var fabricante in repositorioFabricante.registros)
+            {
+                fabricantes.Add(fabricante as Fabricante);
+            }
+
+            foreach (var fabricante in fabricantes)
             {
                 fabricante.AtualizarQuantidadeEquipamentos(repositorioEquipamento.equipamentos);
             }

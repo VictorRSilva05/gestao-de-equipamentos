@@ -54,9 +54,7 @@ public partial class FormFabricantes : Form
             return;
         }
 
-       
-        fabricante.Id = GeradorIds.GerarIdFabricantes();
-        repositorioFabricantes1.fabricantes.Add(fabricante);
+        repositorioFabricantes1.Inserir(fabricante);
         MessageBox.Show($"Fabricante {fabricante.Nome} adicionado com sucesso!");
         LimparCampos();
         AtualizarDataGridView();
@@ -80,7 +78,7 @@ public partial class FormFabricantes : Form
         }
         else
         {
-            repositorioFabricantes1.fabricantes.RemoveAll(e => e.Id == Convert.ToInt32(textBoxId.Text));
+            repositorioFabricantes1.Deletar(Convert.ToInt32(textBoxId.Text));
         }
         MessageBox.Show($"Fabricante com ID {textBoxId.Text} removido com sucesso!");
         LimparCampos();
@@ -97,13 +95,15 @@ public partial class FormFabricantes : Form
         else
         {
             int id = Convert.ToInt32(textBoxId.Text);
-            Fabricante fabricante = repositorioFabricantes1.fabricantes.FirstOrDefault(e => e.Id == id);
-            if (fabricante != null)
+            Fabricante fabricanteEditado = new Fabricante();
+            if (fabricanteEditado != null)
             {
-                fabricante.Nome = textBoxNome.Text;
-                fabricante.Email = textBoxEmail.Text;
-                fabricante.Telefone = maskedTextBoxTelefone.Text;
-                MessageBox.Show($"Fabricante {fabricante.Nome} atualizado com sucesso!");
+                fabricanteEditado.Nome = textBoxNome.Text;
+                fabricanteEditado.Email = textBoxEmail.Text;
+                fabricanteEditado.Telefone = maskedTextBoxTelefone.Text;
+
+                repositorioFabricantes1.Editar(id, fabricanteEditado);
+                MessageBox.Show($"Fabricante {fabricanteEditado.Nome} atualizado com sucesso!");
                 LimparCampos();
                 AtualizarDataGridView();
             }
@@ -126,7 +126,15 @@ public partial class FormFabricantes : Form
     private void AtualizarDataGridView()
     {
         dataGridView1.Rows.Clear();
-        foreach (var fabricante in repositorioFabricantes1.fabricantes)
+
+        List<Fabricante> fabricantes = new List<Fabricante>();
+
+        foreach (var fabricante in repositorioFabricantes1.registros)
+        {
+            fabricantes.Add(fabricante as Fabricante);
+        }
+
+        foreach (var fabricante in fabricantes)
         {
             dataGridView1.Rows.Add(fabricante.Id, fabricante.Nome, fabricante.Telefone, fabricante.Email, fabricante.QtdEquipamentos.ToString()); ;
         }
@@ -143,8 +151,15 @@ public partial class FormFabricantes : Form
 
     private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
     {
-        PopularControles(repositorioFabricantes1.fabricantes[e.RowIndex]);
+        var fabricante = repositorioFabricantes1.registros[e.RowIndex] as Fabricante;
+
+        if (fabricante != null)
+        {
+            PopularControles(fabricante);
+        }
+        else
+        {
+            MessageBox.Show("Erro: O registro selecionado não é um Fabricante.");
+        }
     }
-
-
 }

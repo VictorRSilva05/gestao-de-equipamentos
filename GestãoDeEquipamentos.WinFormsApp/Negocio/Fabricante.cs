@@ -1,11 +1,11 @@
-﻿using GestãoDeEquipamentos.WinFormsApp.Dados;
+﻿using GestãoDeEquipamentos.WinFormsApp.Compartilhado;
+using GestãoDeEquipamentos.WinFormsApp.Dados;
 using System.Net.Mail;
 
 namespace GestãoDeEquipamentos.WinFormsApp.Negocio;
 
-public class Fabricante
+public class Fabricante : EntidadeBase
 {
-    public int Id { get; set; }
     public string Nome { get; set; }
     public string Telefone { get; set; }
     public string Email { get; set; }
@@ -44,6 +44,15 @@ public class Fabricante
             erros += "O campo 'Email' deve estar em um formato válido.\n";
 
         return erros;
+    }
+
+    public override void AtualizarRegistro(EntidadeBase registroEditado)
+    {
+        Fabricante fabricanteEditado = (Fabricante)registroEditado;
+
+        Nome = fabricanteEditado.Nome;
+        Telefone = fabricanteEditado.Telefone;
+        Email = fabricanteEditado.Email;
     }
 }
 

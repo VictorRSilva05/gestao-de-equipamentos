@@ -1,4 +1,6 @@
 ﻿
+using GestãoDeEquipamentos.WinFormsApp.Negocio;
+
 namespace GestãoDeEquipamentos.WinFormsApp.Compartilhado
 {
     public abstract class RepositorioBase
@@ -10,6 +12,32 @@ namespace GestãoDeEquipamentos.WinFormsApp.Compartilhado
         {
             entidade.Id = ++contadorIds;
             registros.Add(entidade);
+        }
+
+        public void Editar(int idRegistro, EntidadeBase registroEditado)
+        {
+            foreach (var registro in registros)
+            {
+                if (registro.Id == idRegistro)
+                {
+                    registro.AtualizarRegistro(registroEditado);
+                }
+            }
+        }
+
+        public void Deletar(int idRegistro)
+        {
+            registros.RemoveAll(e => e.Id == idRegistro);
+        }
+
+        public EntidadeBase SelecionarPorId(int idRegistro)
+        {
+            foreach (var registro in registros)
+            {
+                if (registro.Id == idRegistro)
+                    return registro;
+            }
+            return null;
         }
     }
 }
