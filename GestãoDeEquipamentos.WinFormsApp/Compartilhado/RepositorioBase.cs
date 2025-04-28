@@ -3,18 +3,18 @@ using GestãoDeEquipamentos.WinFormsApp.Negocio;
 
 namespace GestãoDeEquipamentos.WinFormsApp.Compartilhado
 {
-    public abstract class RepositorioBase
+    public abstract class RepositorioBase<T> where T : EntidadeBase<T>
     {
-        public List<EntidadeBase> registros = new List<EntidadeBase>();
+        public List<T> registros = new List<T>();
         private int contadorIds = 0;
 
-        public void Inserir(EntidadeBase entidade)
+        public void Inserir(T entidade)
         {
             entidade.Id = ++contadorIds;
             registros.Add(entidade);
         }
 
-        public void Editar(int idRegistro, EntidadeBase registroEditado)
+        public void Editar(int idRegistro, T registroEditado)
         {
             foreach (var registro in registros)
             {
@@ -30,7 +30,7 @@ namespace GestãoDeEquipamentos.WinFormsApp.Compartilhado
             registros.RemoveAll(e => e.Id == idRegistro);
         }
 
-        public EntidadeBase SelecionarPorId(int idRegistro)
+        public T SelecionarPorId(int idRegistro)
         {
             foreach (var registro in registros)
             {

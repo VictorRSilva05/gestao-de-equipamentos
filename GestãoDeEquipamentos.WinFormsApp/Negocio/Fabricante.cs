@@ -4,7 +4,7 @@ using System.Net.Mail;
 
 namespace GestãoDeEquipamentos.WinFormsApp.Negocio;
 
-public class Fabricante : EntidadeBase
+public class Fabricante : EntidadeBase<Fabricante>
 {
     public string Nome { get; set; }
     public string Telefone { get; set; }
@@ -27,7 +27,7 @@ public class Fabricante : EntidadeBase
         QtdEquipamentos = equipamentos.Count(e => e.Fabricante == Nome);
     }
 
-    public string Validar()
+    public override string Validar()
     {
         string erros = "";
 
@@ -46,10 +46,8 @@ public class Fabricante : EntidadeBase
         return erros;
     }
 
-    public override void AtualizarRegistro(EntidadeBase registroEditado)
+    public override void AtualizarRegistro(Fabricante fabricanteEditado)
     {
-        Fabricante fabricanteEditado = (Fabricante)registroEditado;
-
         Nome = fabricanteEditado.Nome;
         Telefone = fabricanteEditado.Telefone;
         Email = fabricanteEditado.Email;

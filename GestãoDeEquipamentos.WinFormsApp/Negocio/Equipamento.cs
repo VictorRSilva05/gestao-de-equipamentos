@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GestãoDeEquipamentos.WinFormsApp.Negocio
 {
-    public class Equipamento : EntidadeBase
+    public class Equipamento : EntidadeBase<Equipamento>
     {
         public string Nome { get; set; }
         public string Fabricante { get; set; }
@@ -33,7 +33,7 @@ namespace GestãoDeEquipamentos.WinFormsApp.Negocio
             DataFabricacao = dataFabricacao;
         }
 
-        public string Validar()
+        public override string Validar()
         {
             string erros = "";
 
@@ -49,10 +49,8 @@ namespace GestãoDeEquipamentos.WinFormsApp.Negocio
             return erros;
         }
 
-        public override void AtualizarRegistro(EntidadeBase registroEditado)
+        public override void AtualizarRegistro(Equipamento equipamento)
         {
-            Equipamento equipamento = (Equipamento)registroEditado;
-
             Nome = equipamento.Nome;
             Fabricante = equipamento.Fabricante;
             PrecoAquisicao = equipamento.PrecoAquisicao;

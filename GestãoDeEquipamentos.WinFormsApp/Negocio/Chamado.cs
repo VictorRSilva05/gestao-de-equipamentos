@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GestãoDeEquipamentos.WinFormsApp.Negocio
 {
-    public class Chamado : EntidadeBase
+    public class Chamado : EntidadeBase<Chamado>
     {
         public TipoChamadoEnum TituloChamado { get; set; }
         public string DescricaoChamado { get; set; }
@@ -25,7 +25,7 @@ namespace GestãoDeEquipamentos.WinFormsApp.Negocio
             DataAbertura = dataAbertura;
         }
 
-        public string Validar()
+        public override string Validar()
         {
             string erros = "";
 
@@ -38,10 +38,8 @@ namespace GestãoDeEquipamentos.WinFormsApp.Negocio
             return erros;
         }
 
-        public override void AtualizarRegistro(EntidadeBase registroEditado)
+        public override void AtualizarRegistro(Chamado chamadoEditado)
         {
-            Chamado chamadoEditado =  (Chamado)registroEditado;
-
             TituloChamado = chamadoEditado.TituloChamado;
             DescricaoChamado = chamadoEditado.DescricaoChamado;
             Equipamento = chamadoEditado.Equipamento;

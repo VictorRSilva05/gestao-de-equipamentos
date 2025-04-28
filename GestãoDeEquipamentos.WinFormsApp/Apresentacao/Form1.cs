@@ -1,5 +1,4 @@
 using GestãoDeEquipamentos.WinFormsApp.Apresentacao;
-using GestãoDeEquipamentos.WinFormsApp.Compartilhado;
 using GestãoDeEquipamentos.WinFormsApp.Dados;
 using GestãoDeEquipamentos.WinFormsApp.Negocio;
 namespace GestãoDeEquipamentos.WinFormsApp
@@ -401,8 +400,6 @@ namespace GestãoDeEquipamentos.WinFormsApp
         {
             InicializarComboBoxFabricantes();
         }
-
-     
 
         // Example helper method to update related data or UI
         private void AtualizarEquipamentosDoFabricante(string fabricante)
