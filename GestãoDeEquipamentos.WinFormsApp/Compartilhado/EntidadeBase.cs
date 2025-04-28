@@ -5,10 +5,7 @@ namespace GestãoDeEquipamentos.WinFormsApp.Compartilhado
     {
         public int Id { get; set; }
 
-        public virtual string Validar()
-        {
-            return "";
-        }
+        public abstract string Validar();
 
         public abstract void AtualizarRegistro(EntidadeBase registroEditado);
     }
