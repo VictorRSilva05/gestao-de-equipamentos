@@ -8,8 +8,8 @@ namespace GestãoDeEquipamentos.WinFormsApp.Apresentacao;
 
 public partial class FormFabricantes : Form
 {
-    RepositorioFabricante repositorioFabricantes1;
-    public FormFabricantes(RepositorioFabricante repositorioFabricantes, RepositorioEquipamento repositorioEquipamento)
+    private IRepositorioFabricante repositorioFabricantes1;
+    public FormFabricantes(IRepositorioFabricante repositorioFabricantes, RepositorioEquipamento repositorioEquipamento)
     {
         InitializeComponent();
         InicializarDataGridView();
@@ -127,7 +127,7 @@ public partial class FormFabricantes : Form
     {
         dataGridView1.Rows.Clear();
 
-        foreach (var fabricante in repositorioFabricantes1.registros)
+        foreach (var fabricante in repositorioFabricantes1.SelecionarTodos())
         {
             dataGridView1.Rows.Add(fabricante.Id, fabricante.Nome, fabricante.Telefone, fabricante.Email, fabricante.QtdEquipamentos.ToString()); ;
         }
@@ -144,7 +144,7 @@ public partial class FormFabricantes : Form
 
     private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
     {
-        var fabricante = repositorioFabricantes1.registros[e.RowIndex];
+        var fabricante = repositorioFabricantes1.SelecionarTodos()[e.RowIndex];
 
         if (fabricante != null)
         {

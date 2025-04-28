@@ -1,9 +1,12 @@
-﻿
-using GestãoDeEquipamentos.WinFormsApp.Negocio;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace GestãoDeEquipamentos.WinFormsApp.Compartilhado
 {
-    public abstract class RepositorioBase<T> where T : EntidadeBase<T>
+    public abstract class RepositorioBaseEmArquivo<T> where T : EntidadeBase<T>
     {
         public List<T> registros = new List<T>();
         private int contadorIds = 0;
@@ -38,6 +41,11 @@ namespace GestãoDeEquipamentos.WinFormsApp.Compartilhado
                     return registro;
             }
             return null;
+        }
+
+        public List<T> SelecionarTodos()
+        {
+            return registros;
         }
     }
 }

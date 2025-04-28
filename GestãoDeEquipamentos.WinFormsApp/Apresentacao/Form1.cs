@@ -7,7 +7,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
     {
         public RepositorioChamado repositorioChamado = new RepositorioChamado();
         public RepositorioEquipamento repositorioEquipamento = new RepositorioEquipamento();
-        public RepositorioFabricante repositorioFabricante = new RepositorioFabricante();
+        public IRepositorioFabricante repositorioFabricante = new RepositorioFabricanteEmMemoria();
         public Form1()
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
         private void InicializarComboBoxFabricantes()
         {
             comboBoxFabricante.Items.Clear();
-            comboBoxFabricante.Items.AddRange(repositorioFabricante.registros.Select(f => f.Nome).ToArray());
+            comboBoxFabricante.Items.AddRange(repositorioFabricante.SelecionarTodos().Select(f => f.Nome).ToArray());
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
@@ -365,7 +365,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
                 .Cast<Equipamento>()
                 .ToList();
 
-            List<Fabricante> fabricantes = repositorioFabricante.registros
+            List<Fabricante> fabricantes = repositorioFabricante.SelecionarTodos()
                 .Cast<Fabricante>()
                 .ToList();
 
