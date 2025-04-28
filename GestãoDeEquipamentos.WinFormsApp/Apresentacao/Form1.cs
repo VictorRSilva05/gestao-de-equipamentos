@@ -6,7 +6,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
     public partial class Form1 : Form
     {
         public RepositorioChamado repositorioChamado = new RepositorioChamado();
-        public RepositorioEquipamento repositorioEquipamento = new RepositorioEquipamento();
+        public IRepositorioEquipamento repositorioEquipamento = new RepositorioEquipamentoEmMemoria();
         public IRepositorioFabricante repositorioFabricante = new RepositorioFabricanteEmMemoria();
         public Form1()
         {
@@ -227,7 +227,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
         private void AtualizarDataGridViewEquipamentos()
         {
             dataGridView1.Rows.Clear();
-            foreach (var equipamento in repositorioEquipamento.registros)
+            foreach (var equipamento in repositorioEquipamento.SelecionarTodos())
             {
                 dataGridView1.Rows.Add(equipamento.Id, equipamento.Nome, equipamento.Fabricante, equipamento.PrecoAquisicao, equipamento.DataFabricacao, equipamento.NumeroSerie);
             }
@@ -336,7 +336,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            PopularControlesEquipamento(repositorioEquipamento.registros[e.RowIndex]);
+            PopularControlesEquipamento(repositorioEquipamento.SelecionarTodos()[e.RowIndex]);
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -361,7 +361,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
         private void AtualizarQuantidadeEquipamentosFabricantes()
         {
-            List<Equipamento> equipamentos = repositorioEquipamento.registros
+            List<Equipamento> equipamentos = repositorioEquipamento.SelecionarTodos()
                 .Cast<Equipamento>()
                 .ToList();
 
@@ -383,7 +383,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
         private void AtualizarEquipamentosDoFabricante(string fabricante)
         {
             // Filter and display equipment related to the selected manufacturer
-            var equipamentos = repositorioEquipamento.registros
+            var equipamentos = repositorioEquipamento.SelecionarTodos()
                 .Cast<Equipamento>()
                 .ToList();
 
