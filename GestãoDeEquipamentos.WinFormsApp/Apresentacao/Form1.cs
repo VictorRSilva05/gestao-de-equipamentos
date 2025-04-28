@@ -30,15 +30,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
         private void InicializarComboBoxFabricantes()
         {
             comboBoxFabricante.Items.Clear();
-
-            List<Fabricante> fabricantes = new List<Fabricante>();
-
-            foreach (var fabricante in repositorioFabricante.registros)
-            {
-                fabricantes.Add(fabricante as Fabricante);
-            }
-
-            comboBoxFabricante.Items.AddRange(fabricantes.Select(f => f.Nome).ToArray());
+            comboBoxFabricante.Items.AddRange(repositorioFabricante.registros.Select(f => f.Nome).ToArray());
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
@@ -234,15 +226,8 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
         private void AtualizarDataGridViewEquipamentos()
         {
-            List<Equipamento> equipamentos = new List<Equipamento>();
-
-            foreach (var registro in repositorioEquipamento.registros)
-            {
-                equipamentos.Add(registro as Equipamento);
-            }
-
             dataGridView1.Rows.Clear();
-            foreach (var equipamento in equipamentos)
+            foreach (var equipamento in repositorioEquipamento.registros)
             {
                 dataGridView1.Rows.Add(equipamento.Id, equipamento.Nome, equipamento.Fabricante, equipamento.PrecoAquisicao, equipamento.DataFabricacao, equipamento.NumeroSerie);
             }
@@ -250,15 +235,8 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
         private void AtualizarDataGridViewChamados()
         {
-            List<Chamado> chamados = new List<Chamado>();
-
-            foreach (var registro in repositorioChamado.registros)
-            {
-                chamados.Add(registro as Chamado);
-            }
-
             dataGridView2.Rows.Clear();
-            foreach (var chamado in chamados)
+            foreach (var chamado in repositorioChamado.registros)
             {
                 var dataAtual = DateTime.Now.Subtract(chamado.DataAbertura.ToDateTime(TimeOnly.MinValue));
                 var equipamentoId = chamado.Equipamento?.Id ?? 0; // Use 0 or another default value
@@ -358,12 +336,12 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            PopularControlesEquipamento(repositorioEquipamento.registros[e.RowIndex] as Equipamento);
+            PopularControlesEquipamento(repositorioEquipamento.registros[e.RowIndex]);
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            PopularControlesChamado(repositorioChamado.registros[e.RowIndex] as Chamado);
+            PopularControlesChamado(repositorioChamado.registros[e.RowIndex]);
         }
 
         private void button1_Click(object sender, EventArgs e)

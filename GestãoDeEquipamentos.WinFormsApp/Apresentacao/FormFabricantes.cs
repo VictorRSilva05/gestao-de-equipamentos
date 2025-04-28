@@ -127,14 +127,7 @@ public partial class FormFabricantes : Form
     {
         dataGridView1.Rows.Clear();
 
-        List<Fabricante> fabricantes = new List<Fabricante>();
-
         foreach (var fabricante in repositorioFabricantes1.registros)
-        {
-            fabricantes.Add(fabricante as Fabricante);
-        }
-
-        foreach (var fabricante in fabricantes)
         {
             dataGridView1.Rows.Add(fabricante.Id, fabricante.Nome, fabricante.Telefone, fabricante.Email, fabricante.QtdEquipamentos.ToString()); ;
         }
@@ -151,7 +144,7 @@ public partial class FormFabricantes : Form
 
     private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
     {
-        var fabricante = repositorioFabricantes1.registros[e.RowIndex] as Fabricante;
+        var fabricante = repositorioFabricantes1.registros[e.RowIndex];
 
         if (fabricante != null)
         {
