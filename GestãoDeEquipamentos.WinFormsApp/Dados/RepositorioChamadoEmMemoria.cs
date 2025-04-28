@@ -5,7 +5,7 @@ using GestãoDeEquipamentos.WinFormsApp.Negocio;
 
 namespace GestãoDeEquipamentos.WinFormsApp.Dados
 {
-    public class RepositorioChamado : RepositorioBaseEmMemoria<Chamado>
+    public class RepositorioChamadoEmMemoria : RepositorioBaseEmMemoria<Chamado>, IRepositorioChamado
     {
     }
 }

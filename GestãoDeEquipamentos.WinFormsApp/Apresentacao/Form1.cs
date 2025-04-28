@@ -5,7 +5,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
 {
     public partial class Form1 : Form
     {
-        public RepositorioChamado repositorioChamado = new RepositorioChamado();
+        public IRepositorioChamado repositorioChamado = new RepositorioChamadoEmMemoria();
         public IRepositorioEquipamento repositorioEquipamento = new RepositorioEquipamentoEmMemoria();
         public IRepositorioFabricante repositorioFabricante = new RepositorioFabricanteEmMemoria();
         public Form1()
@@ -236,7 +236,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
         private void AtualizarDataGridViewChamados()
         {
             dataGridView2.Rows.Clear();
-            foreach (var chamado in repositorioChamado.registros)
+            foreach (var chamado in repositorioChamado.SelecionarTodos())
             {
                 var dataAtual = DateTime.Now.Subtract(chamado.DataAbertura.ToDateTime(TimeOnly.MinValue));
                 var equipamentoId = chamado.Equipamento?.Id ?? 0; // Use 0 or another default value
@@ -341,7 +341,7 @@ namespace GestãoDeEquipamentos.WinFormsApp
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            PopularControlesChamado(repositorioChamado.registros[e.RowIndex]);
+            PopularControlesChamado(repositorioChamado.SelecionarTodos()[e.RowIndex]);
         }
 
         private void button1_Click(object sender, EventArgs e)
