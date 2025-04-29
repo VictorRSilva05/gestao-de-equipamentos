@@ -7,14 +7,14 @@ namespace GestãoDeEquipamentos.WinFormsApp
     {
         public IRepositorioChamado repositorioChamado = new RepositorioChamadoEmMemoria();
         public IRepositorioEquipamento repositorioEquipamento = new RepositorioEquipamentoEmMemoria();
-        public IRepositorioFabricante repositorioFabricante = new RepositorioFabricanteEmMemoria();
+        public IRepositorioFabricante repositorioFabricante = new RepositorioFabricanteEmArquivo();
         public Form1()
         {
             InitializeComponent();
             InicializarDataGridViewEquipamentos();
             InicializarDataGridViewChamados();
             CargaInicialEquipamento();
-            CargaInicialFabricantes();
+            //CargaInicialFabricantes();
             AtualizarQuantidadeEquipamentosFabricantes();
             InicializarComboBoxChamado();
             InicializarComboBoxFabricantes();

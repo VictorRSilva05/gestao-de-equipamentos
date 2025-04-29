@@ -8,7 +8,11 @@ using System.Threading.Tasks;
 
 namespace GestãoDeEquipamentos.WinFormsApp.Dados
 {
-    public class RepositorioFabricanteEmArquivo : RepositorioBaseEmArquivo<Fabricante>
+    public class RepositorioFabricanteEmArquivo : RepositorioBaseEmArquivo<Fabricante>, IRepositorioFabricante
     {
+        public RepositorioFabricanteEmArquivo() : base("fabricantes.json")
+        {
+        }
+
     }
 }
