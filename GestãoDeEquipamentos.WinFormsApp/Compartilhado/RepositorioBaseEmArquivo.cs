@@ -10,13 +10,12 @@ namespace GestãoDeEquipamentos.WinFormsApp.Compartilhado
         public List<T> registros = new List<T>();
         private int contadorIds = 0;
 
-        private string caminhoPastaTemp = "C:\\Temp";
-        private string nomeArquivo;
-        protected RepositorioBaseEmArquivo(string nomeArquivo)
+        protected ContextoDados contexto;
+       
+        protected RepositorioBaseEmArquivo(ContextoDados contexto)
         {
-            this.nomeArquivo = nomeArquivo;
-
-            registros = Deserializar();
+            this.contexto = contexto;
+            registros = ObterRegistros();
             
             int maiorId = 0;
 
@@ -28,12 +27,14 @@ namespace GestãoDeEquipamentos.WinFormsApp.Compartilhado
 
             contadorIds = maiorId;
         }
+
+        protected abstract List<T> ObterRegistros();
         public void Inserir(T entidade)
         {
             entidade.Id = ++contadorIds;
             registros.Add(entidade);
 
-            Serializar();
+            contexto.Salvar();
         }
 
         public void Editar(int idRegistro, T registroEditado)
@@ -44,7 +45,7 @@ namespace GestãoDeEquipamentos.WinFormsApp.Compartilhado
                 {
                     registro.AtualizarRegistro(registroEditado);
 
-                    Serializar();
+                    contexto.Salvar();
                 }
             }
         }
@@ -53,7 +54,7 @@ namespace GestãoDeEquipamentos.WinFormsApp.Compartilhado
         {
             registros.RemoveAll(e => e.Id == idRegistro);
 
-            Serializar();
+            contexto.Salvar();
         }
 
         public T SelecionarPorId(int idRegistro)
@@ -71,46 +72,6 @@ namespace GestãoDeEquipamentos.WinFormsApp.Compartilhado
             return registros;
         }
 
-        protected void Serializar()
-        {
-            string caminhoCompleto = Path.Combine(caminhoPastaTemp,nomeArquivo);
 
-            JsonSerializerOptions options = new JsonSerializerOptions
-            {
-                WriteIndented = true,
-                ReferenceHandler = ReferenceHandler.Preserve,
-            };
-
-            string json = JsonSerializer.Serialize(registros, options);
-
-            if(!Directory.Exists(caminhoPastaTemp))
-                Directory.CreateDirectory(caminhoPastaTemp);
-
-            File.WriteAllText(caminhoCompleto, json);
-        }
-
-        protected List<T> Deserializar()
-        {
-            List<T> registrosArmazenados = new List<T>();
-
-            string caminhoCompleto = Path.Combine(caminhoPastaTemp, nomeArquivo);
-
-            if(!File.Exists(caminhoCompleto))
-                return registrosArmazenados;
-
-            string json = File.ReadAllText(caminhoCompleto);
-
-            if (string.IsNullOrWhiteSpace(json))
-                return registrosArmazenados;
-
-            JsonSerializerOptions options = new JsonSerializerOptions
-            {
-                ReferenceHandler = ReferenceHandler.Preserve,
-            };
-
-            registrosArmazenados = JsonSerializer.Deserialize<List<T>>(json,options);
-
-            return registrosArmazenados;
-        }
     }
 }

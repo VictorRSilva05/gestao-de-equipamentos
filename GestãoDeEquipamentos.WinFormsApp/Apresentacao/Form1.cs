@@ -1,15 +1,22 @@
 using GestãoDeEquipamentos.WinFormsApp.Apresentacao;
+using GestãoDeEquipamentos.WinFormsApp.Compartilhado;
 using GestãoDeEquipamentos.WinFormsApp.Dados;
 using GestãoDeEquipamentos.WinFormsApp.Negocio;
 namespace GestãoDeEquipamentos.WinFormsApp
 {
     public partial class Form1 : Form
     {
-        public IRepositorioChamado repositorioChamado = new RepositorioChamadoEmArquivo();
-        public IRepositorioEquipamento repositorioEquipamento = new RepositorioEquipamentoEmArquivo();
-        public IRepositorioFabricante repositorioFabricante = new RepositorioFabricanteEmArquivo();
+        private ContextoDados contexto;
+
+        public IRepositorioChamado repositorioChamado; 
+        public IRepositorioEquipamento repositorioEquipamento;
+        public IRepositorioFabricante repositorioFabricante; 
         public Form1()
         {
+            this.contexto = new ContextoDados(true);
+            this.repositorioChamado = new RepositorioChamadoEmArquivo(contexto);
+            this.repositorioEquipamento = new RepositorioEquipamentoEmArquivo(contexto);
+            this.repositorioFabricante = new RepositorioFabricanteEmArquivo(contexto);
             InitializeComponent();
             InicializarDataGridViewEquipamentos();
             InicializarDataGridViewChamados();
