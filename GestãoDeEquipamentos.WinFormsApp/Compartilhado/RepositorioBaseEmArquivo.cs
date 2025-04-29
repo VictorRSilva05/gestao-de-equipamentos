@@ -1,5 +1,7 @@
 ﻿
+using System.Security.Cryptography.Xml;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace GestãoDeEquipamentos.WinFormsApp.Compartilhado
 {
@@ -73,7 +75,13 @@ namespace GestãoDeEquipamentos.WinFormsApp.Compartilhado
         {
             string caminhoCompleto = Path.Combine(caminhoPastaTemp,nomeArquivo);
 
-            string json = JsonSerializer.Serialize(registros);
+            JsonSerializerOptions options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                ReferenceHandler = ReferenceHandler.Preserve,
+            };
+
+            string json = JsonSerializer.Serialize(registros, options);
 
             if(!Directory.Exists(caminhoPastaTemp))
                 Directory.CreateDirectory(caminhoPastaTemp);
@@ -95,7 +103,12 @@ namespace GestãoDeEquipamentos.WinFormsApp.Compartilhado
             if (string.IsNullOrWhiteSpace(json))
                 return registrosArmazenados;
 
-            registrosArmazenados = JsonSerializer.Deserialize<List<T>>(json);
+            JsonSerializerOptions options = new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve,
+            };
+
+            registrosArmazenados = JsonSerializer.Deserialize<List<T>>(json,options);
 
             return registrosArmazenados;
         }

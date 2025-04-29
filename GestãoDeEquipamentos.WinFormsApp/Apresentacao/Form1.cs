@@ -5,15 +5,15 @@ namespace GestãoDeEquipamentos.WinFormsApp
 {
     public partial class Form1 : Form
     {
-        public IRepositorioChamado repositorioChamado = new RepositorioChamadoEmMemoria();
-        public IRepositorioEquipamento repositorioEquipamento = new RepositorioEquipamentoEmMemoria();
+        public IRepositorioChamado repositorioChamado = new RepositorioChamadoEmArquivo();
+        public IRepositorioEquipamento repositorioEquipamento = new RepositorioEquipamentoEmArquivo();
         public IRepositorioFabricante repositorioFabricante = new RepositorioFabricanteEmArquivo();
         public Form1()
         {
             InitializeComponent();
             InicializarDataGridViewEquipamentos();
             InicializarDataGridViewChamados();
-            CargaInicialEquipamento();
+            //CargaInicialEquipamento();
             //CargaInicialFabricantes();
             AtualizarQuantidadeEquipamentosFabricantes();
             InicializarComboBoxChamado();
